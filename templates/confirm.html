@@ -17,6 +17,17 @@
       </section>
 
       <div class="form-shell">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="mb-3">
+              {% for category, message in messages %}
+                <div class="alert alert-{{ 'danger' if category == 'danger' else 'success' }}" role="alert">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
         <section class="section-card">
           <div class="section-heading">
             <span class="section-title">Resumen del envío</span>

@@ -1,3 +1,15 @@
-Flask>=2.0
+Flask>=2.3
+Flask-Cors>=4.0
 pandas>=1.5
+numpy>=1.24
 python-dotenv
+SQLAlchemy>=2.0
+psycopg2-binary>=2.9
+alembic>=1.12
+streamlit>=1.36
+plotly>=5.20
+seaborn>=0.13
+matplotlib>=3.8
+scikit-learn>=1.4
+faker>=19.0
+gunicorn>=21.2
