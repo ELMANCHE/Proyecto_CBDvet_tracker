@@ -31,7 +31,7 @@ cd Proyecto_CBDvet_tracker
 cp .env.example .env
 
 # 3. Construye las imágenes y levanta los servicios necesarios
-docker compose up --build -d web db
+docker compose up --build -d web db analytics streamlit
 
 # 4. (Opcional) comprueba el estado de los contenedores
 docker compose ps
@@ -42,10 +42,13 @@ docker compose ps
 # 6. (Opcional) revisa logs recientes del backend
 docker compose logs --tail=50 web
 
-# 7. (Opcional) ingresa a PostgreSQL para verificar datos
+# 7. (Opcional) revisa el worker de analítica
+docker compose logs --tail=50 analytics
+
+# 8. (Opcional) ingresa a PostgreSQL para verificar datos
 docker compose exec db psql -U "${POSTGRES_USER:-cbdvet_user}" -d "${POSTGRES_DB:-cbdvet_db}"
 
-# 8. Para apagar y limpiar (incluyendo la base de datos generada en el volumen)
+# 9. Para apagar y limpiar (incluyendo la base de datos generada en el volumen)
 docker compose down -v
 ```
 
@@ -59,7 +62,20 @@ source .venv/bin/activate
 pip install -r requirements.txt
 export FLASK_APP=app.py FLASK_ENV=development
 flask run --host=127.0.0.1 --port=5000
+
+# En otra terminal (servidor analítico)
+python analisis_kdd.py
+
+# En otra terminal (dashboard)
+streamlit run streamlit_kdd.py
 ```
+
+## Dashboard de analítica en tiempo real
+
+- El servicio **analytics** ejecuta `analisis_kdd.py`, que extrae datos de PostgreSQL, ejecuta el pipeline KDD y refresca un cache JSON cada `ANALYTICS_REFRESH_SECONDS` segundos (30 por defecto).
+- El tablero **Streamlit** consume ese cache con `streamlit_kdd.py` y se auto refresca sin necesidad de recargar la página manualmente.
+- Ambas piezas comparten el volumen `analytics_cache` (`cache/analytics.json`). Si prefieres guardar el cache en otra ruta, ajusta la variable de entorno `ANALYTICS_CACHE`.
+- Cada limpieza aplicada (imputaciones, normalización de unidades, deduplicación, corrección de pesos y filtros de outliers) queda registrada en la bitácora ETL visible desde el tablero.
 
 ## Estructura de la base de datos
 

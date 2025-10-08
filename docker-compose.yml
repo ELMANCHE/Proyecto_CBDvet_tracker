@@ -16,10 +16,11 @@ services:
       - db
     volumes:
       - .:/app:ro
+      - analytics_cache:/app/cache
 
   streamlit:
     build: .
-    command: streamlit run analizador_cbd_ml.py --server.address=0.0.0.0 --server.port=8501
+    command: streamlit run streamlit_kdd.py --server.address=0.0.0.0 --server.port=8501
     container_name: cbdvet_streamlit
     ports:
       - "8501:8501"
@@ -29,6 +30,20 @@ services:
       - db
     volumes:
       - .:/app:ro
+      - analytics_cache:/app/cache
+
+  analytics:
+    build: .
+    command: python analisis_kdd.py
+    container_name: cbdvet_analytics
+    environment:
+      - DATABASE_URL=${DATABASE_URL:-postgresql+psycopg2://cbdvet_user:cbdvet_pass@db:5432/cbdvet_db}
+      - ANALYTICS_REFRESH_SECONDS=${ANALYTICS_REFRESH_SECONDS:-30}
+    depends_on:
+      - db
+    volumes:
+      - .:/app:ro
+      - analytics_cache:/app/cache
 
   db:
     image: postgres:15
@@ -45,3 +60,4 @@ services:
 
 volumes:
   postgres_data:
+  analytics_cache:
