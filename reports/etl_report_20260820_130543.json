@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-08-20T13:05:43.106467",
+  "raw_records": 564,
+  "cleaned_records": 564,
+  "final_records": 872,
+  "features": 29,
+  "target_positive": 436,
+  "target_negative": 436,
+  "etl_log": [
+    {
+      "timestamp": "2026-08-20T13:05:43.061111",
+      "step": "Extract",
+      "message": "564 records"
+    },
+    {
+      "timestamp": "2026-08-20T13:05:43.061681",
+      "step": "Validate",
+      "message": "{'weight_anomalies': 0, 'age_anomalies': 0, 'dosis_anomalies': 0}"
+    },
+    {
+      "timestamp": "2026-08-20T13:05:43.068278",
+      "step": "Clean",
+      "message": "564 rows"
+    },
+    {
+      "timestamp": "2026-08-20T13:05:43.076828",
+      "step": "FeatureEngineering",
+      "message": "44 cols"
+    },
+    {
+      "timestamp": "2026-08-20T13:05:43.106457",
+      "step": "Prepare",
+      "message": "872 samples, 29 features"
+    }
+  ]
+}

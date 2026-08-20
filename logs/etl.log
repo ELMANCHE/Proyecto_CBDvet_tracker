@@ -1,0 +1,352 @@
+2026-04-07 18:39:11 - etl - INFO - [run_full_pipeline:471] - ▶️  Starting full ETL pipeline...
+2026-04-07 18:39:11 - etl - INFO - [extract_data:44] - 🔄 Starting data extraction from PostgreSQL...
+2026-04-07 18:39:11 - etl - ERROR - [extract_data:114] - ❌ Error during extraction: (psycopg2.errors.UndefinedColumn) column c.id_paciente does not exist
+LINE 44:             LEFT JOIN paciente p ON c.id_paciente = p.id
+                                             ^
+
+[SQL: 
+            SELECT 
+                c.id as consulta_id,
+                p.id as paciente_id,
+                p.nombre as paciente_nombre,
+                p.peso_kg,
+                p.edad_anios,
+                p.sexo,
+                te.nombre as especie,
+                r.nombre as raza,
+                r.peso_promedio,
+                
+                c.fecha_consulta,
+                c.temperatura_c,
+                c.presion_sistolica,
+                c.presion_diastolica,
+                c.frecuencia_cardiaca,
+                c.puntuacion_dolor as dolor_inicial,
+                
+                e.nombre as enfermedad,
+                d.severidad,
+                
+                t.dosis_mg,
+                t.frecuencia_diaria,
+                t.duracion_dias,
+                t.tipo_presentacion,
+                t.concentracion_mg_ml,
+                t.fecha_inicio,
+                
+                cc.tiene_diabetes,
+                cc.tiene_insuf_renal,
+                cc.tiene_enfermedad_cardiaca,
+                cc.valores_alt,
+                cc.valores_ast,
+                cc.creatinina,
+                
+                r2.fecha_seguimiento,
+                r2.puntuacion_dolor_final,
+                r2.porcentaje_mejora,
+                r2.efectos_secundarios,
+                r2.tratamiento_exitoso
+                
+            FROM consulta c
+            LEFT JOIN paciente p ON c.id_paciente = p.id
+            LEFT JOIN tipo_especie te ON p.id_especie = te.id
+            LEFT JOIN raza r ON p.id_raza = r.id
+            LEFT JOIN diagnostico d ON c.id_diagnostico = d.id
+            LEFT JOIN enfermedad e ON d.id_enfermedad = e.id
+            LEFT JOIN tratamiento_cbd t ON c.id = t.id_consulta
+            LEFT JOIN condiciones_clinicas cc ON c.id = cc.id_consulta
+            LEFT JOIN resultado r2 ON c.id = r2.id_consulta
+            ORDER BY c.id_paciente, c.fecha_consulta
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-04-07 18:39:11 - etl - ERROR - [run_full_pipeline:488] - ❌ ETL Pipeline failed: (psycopg2.errors.UndefinedColumn) column c.id_paciente does not exist
+LINE 44:             LEFT JOIN paciente p ON c.id_paciente = p.id
+                                             ^
+
+[SQL: 
+            SELECT 
+                c.id as consulta_id,
+                p.id as paciente_id,
+                p.nombre as paciente_nombre,
+                p.peso_kg,
+                p.edad_anios,
+                p.sexo,
+                te.nombre as especie,
+                r.nombre as raza,
+                r.peso_promedio,
+                
+                c.fecha_consulta,
+                c.temperatura_c,
+                c.presion_sistolica,
+                c.presion_diastolica,
+                c.frecuencia_cardiaca,
+                c.puntuacion_dolor as dolor_inicial,
+                
+                e.nombre as enfermedad,
+                d.severidad,
+                
+                t.dosis_mg,
+                t.frecuencia_diaria,
+                t.duracion_dias,
+                t.tipo_presentacion,
+                t.concentracion_mg_ml,
+                t.fecha_inicio,
+                
+                cc.tiene_diabetes,
+                cc.tiene_insuf_renal,
+                cc.tiene_enfermedad_cardiaca,
+                cc.valores_alt,
+                cc.valores_ast,
+                cc.creatinina,
+                
+                r2.fecha_seguimiento,
+                r2.puntuacion_dolor_final,
+                r2.porcentaje_mejora,
+                r2.efectos_secundarios,
+                r2.tratamiento_exitoso
+                
+            FROM consulta c
+            LEFT JOIN paciente p ON c.id_paciente = p.id
+            LEFT JOIN tipo_especie te ON p.id_especie = te.id
+            LEFT JOIN raza r ON p.id_raza = r.id
+            LEFT JOIN diagnostico d ON c.id_diagnostico = d.id
+            LEFT JOIN enfermedad e ON d.id_enfermedad = e.id
+            LEFT JOIN tratamiento_cbd t ON c.id = t.id_consulta
+            LEFT JOIN condiciones_clinicas cc ON c.id = cc.id_consulta
+            LEFT JOIN resultado r2 ON c.id = r2.id_consulta
+            ORDER BY c.id_paciente, c.fecha_consulta
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-04-07 18:42:28 - etl - INFO - [extract_data:44] - 🔄 Starting data extraction from PostgreSQL...
+2026-04-07 18:42:29 - etl - INFO - [extract_data:107] - ✅ Extracted 50000 records from PostgreSQL
+2026-04-07 18:42:29 - etl - INFO - [extract_data:108] - ✅ Dataset shape: (50000, 32)
+2026-04-07 18:42:39 - etl - INFO - [extract_data:44] - 🔄 Starting data extraction from PostgreSQL...
+2026-04-07 18:42:39 - etl - INFO - [extract_data:107] - ✅ Extracted 50000 records from PostgreSQL
+2026-04-07 18:42:39 - etl - INFO - [extract_data:108] - ✅ Dataset shape: (50000, 32)
+2026-04-07 18:42:52 - etl - INFO - [run_full_pipeline:471] - ▶️  Starting full ETL pipeline...
+2026-04-07 18:42:52 - etl - INFO - [extract_data:44] - 🔄 Starting data extraction from PostgreSQL...
+2026-04-07 18:42:53 - etl - INFO - [extract_data:107] - ✅ Extracted 50000 records from PostgreSQL
+2026-04-07 18:42:53 - etl - INFO - [extract_data:108] - ✅ Dataset shape: (50000, 32)
+2026-04-07 18:42:53 - etl - INFO - [validate_data:129] - 🔍 Validating data against clinical guardrails...
+2026-04-07 18:42:53 - etl - ERROR - [run_full_pipeline:488] - ❌ ETL Pipeline failed: 'dosis_mg'
+2026-04-07 18:44:31 - etl - INFO - [run_full_pipeline:469] - ▶️  Starting full ETL pipeline...
+2026-04-07 18:44:31 - etl - INFO - [extract_data:44] - 🔄 Starting data extraction from PostgreSQL...
+2026-04-07 18:44:32 - etl - INFO - [extract_data:107] - ✅ Extracted 50000 records from PostgreSQL
+2026-04-07 18:44:32 - etl - INFO - [extract_data:108] - ✅ Dataset shape: (50000, 32)
+2026-04-07 18:44:32 - etl - INFO - [validate_data:129] - 🔍 Validating data against clinical guardrails...
+2026-04-07 18:44:32 - etl - INFO - [validate_data:174] - ⚠️  Found 0 validation issues
+2026-04-07 18:44:32 - etl - INFO - [validate_data:175] -    Weight anomalies: 0
+2026-04-07 18:44:32 - etl - INFO - [validate_data:176] -    Age anomalies: 0
+2026-04-07 18:44:32 - etl - INFO - [validate_data:177] -    Dosis anomalies: 0
+2026-04-07 18:44:32 - etl - INFO - [validate_data:178] -    Pressure anomalies: 0
+2026-04-07 18:44:32 - etl - INFO - [clean_data:193] - 🧹 Cleaning data...
+2026-04-07 18:44:32 - etl - INFO - [clean_data:201] -    Removed 0 duplicate records
+2026-04-07 18:44:32 - etl - INFO - [clean_data:222] -    Filled 0 null values
+2026-04-07 18:44:32 - etl - INFO - [clean_data:245] -    Removed 50000 outlier records
+2026-04-07 18:44:32 - etl - INFO - [clean_data:258] - ✅ Data cleaning complete. Final rows: 0
+2026-04-07 18:44:32 - etl - INFO - [transform_data:272] - 🔄 Transforming data...
+2026-04-07 18:44:32 - etl - INFO - [transform_data:277] -    Scaling numeric features...
+2026-04-07 18:44:32 - etl - INFO - [transform_data:288] - ✅ Data transformation complete
+2026-04-07 18:44:32 - etl - INFO - [engineer_features:303] - ⚙️  Engineering features...
+2026-04-07 18:44:32 - etl - INFO - [engineer_features:309] -    Creating temporal features...
+2026-04-07 18:44:32 - etl - INFO - [engineer_features:316] -    Creating derived features...
+2026-04-07 18:44:32 - etl - INFO - [engineer_features:337] -    Encoding categorical features...
+2026-04-07 18:44:32 - etl - INFO - [engineer_features:346] -    Creating target variable...
+2026-04-07 18:44:32 - etl - INFO - [engineer_features:349] - ✅ Feature engineering complete. Total features: 71
+2026-04-07 18:44:32 - etl - INFO - [prepare_for_modeling:365] - 📊 Preparing data for modeling...
+2026-04-07 18:44:32 - etl - INFO - [prepare_for_modeling:395] -    Using 17 features: ['peso_kg_scaled', 'edad_anios_scaled', 'dosis_mg_kg_scaled', 'severidad', 'duracion_dias', 'alt', 'ast', 'nivel_estres', 'sexo_encoded', 'especie_encoded']...
+2026-04-07 18:44:32 - etl - WARNING - [prepare_for_modeling:419] - No valid target values found - creating synthetic targets
+2026-04-07 18:44:32 - etl - INFO - [prepare_for_modeling:430] - ✅ Prepared 0 samples with 17 features
+2026-04-07 18:44:32 - etl - INFO - [prepare_for_modeling:431] -    Target distribution: {}
+2026-04-07 18:44:32 - etl - INFO - [run_full_pipeline:480] - ✅ ETL Pipeline completed successfully
+2026-04-07 18:44:32 - etl - INFO - [run_full_pipeline:481] -    Report: {'timestamp': '2026-04-07T18:44:32.783129', 'raw_records': 50000, 'cleaned_records': 0, 'final_records': 0, 'features': 17, 'target_positive': 0, 'target_negative': 0, 'etl_log': [{'timestamp': '2026-04-07T18:44:32.554635', 'step': 'Extract', 'message': 'Extracted 50000 records'}, {'timestamp': '2026-04-07T18:44:32.562570', 'step': 'Validate', 'message': 'Found 0 validation issues'}, {'timestamp': '2026-04-07T18:44:32.590255', 'step': 'Clean - Duplicates', 'message': 'Removed 0 duplicates'}, {'timestamp': '2026-04-07T18:44:32.737021', 'step': 'Clean - Nulls', 'message': 'Filled 0 null values'}, {'timestamp': '2026-04-07T18:44:32.767864', 'step': 'Clean - Outliers', 'message': 'Removed 50000 outliers'}, {'timestamp': '2026-04-07T18:44:32.770900', 'step': 'Transform', 'message': 'Scaled numeric features'}, {'timestamp': '2026-04-07T18:44:32.779099', 'step': 'Feature Engineering', 'message': 'Processed 71 features'}, {'timestamp': '2026-04-07T18:44:32.783110', 'step': 'Prepare for Modeling', 'message': 'Created 0 samples, 17 features'}]}
+2026-04-07 18:45:25 - etl - INFO - [run_full_pipeline:468] - ▶️  Starting full ETL pipeline...
+2026-04-07 18:45:25 - etl - INFO - [extract_data:44] - 🔄 Starting data extraction from PostgreSQL...
+2026-04-07 18:45:26 - etl - INFO - [extract_data:107] - ✅ Extracted 50000 records from PostgreSQL
+2026-04-07 18:45:26 - etl - INFO - [extract_data:108] - ✅ Dataset shape: (50000, 32)
+2026-04-07 18:45:26 - etl - INFO - [validate_data:129] - 🔍 Validating data against clinical guardrails...
+2026-04-07 18:45:26 - etl - INFO - [validate_data:174] - ⚠️  Found 0 validation issues
+2026-04-07 18:45:26 - etl - INFO - [validate_data:175] -    Weight anomalies: 0
+2026-04-07 18:45:26 - etl - INFO - [validate_data:176] -    Age anomalies: 0
+2026-04-07 18:45:26 - etl - INFO - [validate_data:177] -    Dosis anomalies: 0
+2026-04-07 18:45:26 - etl - INFO - [validate_data:178] -    Pressure anomalies: 0
+2026-04-07 18:45:26 - etl - INFO - [clean_data:193] - 🧹 Cleaning data...
+2026-04-07 18:45:26 - etl - INFO - [clean_data:201] -    Removed 0 duplicate records
+2026-04-07 18:45:26 - etl - INFO - [clean_data:223] -    Filled 0 null values
+2026-04-07 18:45:26 - etl - INFO - [clean_data:244] -    Removed 0 outlier records
+2026-04-07 18:45:26 - etl - INFO - [clean_data:257] - ✅ Data cleaning complete. Final rows: 50000
+2026-04-07 18:45:26 - etl - INFO - [transform_data:271] - 🔄 Transforming data...
+2026-04-07 18:45:26 - etl - INFO - [transform_data:276] -    Scaling numeric features...
+2026-04-07 18:45:26 - etl - INFO - [transform_data:287] - ✅ Data transformation complete
+2026-04-07 18:45:26 - etl - INFO - [engineer_features:302] - ⚙️  Engineering features...
+2026-04-07 18:45:26 - etl - INFO - [engineer_features:308] -    Creating temporal features...
+2026-04-07 18:45:26 - etl - INFO - [engineer_features:315] -    Creating derived features...
+2026-04-07 18:45:26 - etl - INFO - [engineer_features:336] -    Encoding categorical features...
+2026-04-07 18:45:26 - etl - INFO - [engineer_features:345] -    Creating target variable...
+2026-04-07 18:45:26 - etl - INFO - [engineer_features:348] - ✅ Feature engineering complete. Total features: 71
+2026-04-07 18:45:26 - etl - INFO - [prepare_for_modeling:364] - 📊 Preparing data for modeling...
+2026-04-07 18:45:26 - etl - INFO - [prepare_for_modeling:394] -    Using 17 features: ['peso_kg_scaled', 'edad_anios_scaled', 'dosis_mg_kg_scaled', 'severidad', 'duracion_dias', 'alt', 'ast', 'nivel_estres', 'sexo_encoded', 'especie_encoded']...
+2026-04-07 18:45:26 - etl - INFO - [prepare_for_modeling:429] - ✅ Prepared 50000 samples with 17 features
+2026-04-07 18:45:26 - etl - INFO - [prepare_for_modeling:430] -    Target distribution: {0: 50000}
+2026-04-07 18:45:26 - etl - INFO - [run_full_pipeline:479] - ✅ ETL Pipeline completed successfully
+2026-04-07 18:45:26 - etl - INFO - [run_full_pipeline:480] -    Report: {'timestamp': '2026-04-07T18:45:26.604904', 'raw_records': 50000, 'cleaned_records': 50000, 'final_records': 50000, 'features': 17, 'target_positive': 0, 'target_negative': 50000, 'etl_log': [{'timestamp': '2026-04-07T18:45:26.113854', 'step': 'Extract', 'message': 'Extracted 50000 records'}, {'timestamp': '2026-04-07T18:45:26.121495', 'step': 'Validate', 'message': 'Found 0 validation issues'}, {'timestamp': '2026-04-07T18:45:26.148814', 'step': 'Clean - Duplicates', 'message': 'Removed 0 duplicates'}, {'timestamp': '2026-04-07T18:45:26.314520', 'step': 'Clean - Nulls', 'message': 'Filled 0 null values'}, {'timestamp': '2026-04-07T18:45:26.373892', 'step': 'Clean - Outliers', 'message': 'Removed 0 outliers'}, {'timestamp': '2026-04-07T18:45:26.424946', 'step': 'Transform', 'message': 'Scaled numeric features'}, {'timestamp': '2026-04-07T18:45:26.534543', 'step': 'Feature Engineering', 'message': 'Processed 71 features'}, {'timestamp': '2026-04-07T18:45:26.590547', 'step': 'Prepare for Modeling', 'message': 'Created 50000 samples, 17 features'}]}
+2026-04-07 18:46:28 - etl - INFO - [run_full_pipeline:450] - ▶️  Starting full ETL pipeline...
+2026-04-07 18:46:28 - etl - INFO - [extract_data:44] - 🔄 Starting data extraction from PostgreSQL...
+2026-04-07 18:46:28 - etl - INFO - [extract_data:107] - ✅ Extracted 50000 records from PostgreSQL
+2026-04-07 18:46:28 - etl - INFO - [extract_data:108] - ✅ Dataset shape: (50000, 32)
+2026-04-07 18:46:28 - etl - INFO - [validate_data:129] - 🔍 Validating data against clinical guardrails...
+2026-04-07 18:46:28 - etl - INFO - [validate_data:174] - ⚠️  Found 0 validation issues
+2026-04-07 18:46:28 - etl - INFO - [validate_data:175] -    Weight anomalies: 0
+2026-04-07 18:46:28 - etl - INFO - [validate_data:176] -    Age anomalies: 0
+2026-04-07 18:46:28 - etl - INFO - [validate_data:177] -    Dosis anomalies: 0
+2026-04-07 18:46:28 - etl - INFO - [validate_data:178] -    Pressure anomalies: 0
+2026-04-07 18:46:28 - etl - INFO - [clean_data:193] - 🧹 Cleaning data...
+2026-04-07 18:46:28 - etl - INFO - [clean_data:201] -    Removed 0 duplicate records
+2026-04-07 18:46:29 - etl - INFO - [clean_data:223] -    Filled 0 null values
+2026-04-07 18:46:29 - etl - INFO - [clean_data:244] -    Removed 0 outlier records
+2026-04-07 18:46:29 - etl - INFO - [clean_data:257] - ✅ Data cleaning complete. Final rows: 50000
+2026-04-07 18:46:29 - etl - INFO - [transform_data:271] - 🔄 Transforming data...
+2026-04-07 18:46:29 - etl - INFO - [transform_data:276] -    Scaling numeric features...
+2026-04-07 18:46:29 - etl - INFO - [transform_data:287] - ✅ Data transformation complete
+2026-04-07 18:46:29 - etl - INFO - [engineer_features:302] - ⚙️  Engineering features...
+2026-04-07 18:46:29 - etl - INFO - [engineer_features:308] -    Creating temporal features...
+2026-04-07 18:46:29 - etl - INFO - [engineer_features:315] -    Creating derived features...
+2026-04-07 18:46:29 - etl - INFO - [engineer_features:336] -    Encoding categorical features...
+2026-04-07 18:46:29 - etl - INFO - [engineer_features:345] -    Creating target variable...
+2026-04-07 18:46:29 - etl - INFO - [engineer_features:348] - ✅ Feature engineering complete. Total features: 71
+2026-04-07 18:46:29 - etl - INFO - [prepare_for_modeling:364] - 📊 Preparing data for modeling...
+2026-04-07 18:46:29 - etl - INFO - [prepare_for_modeling:374] -    Using 52 numeric features
+2026-04-07 18:46:29 - etl - INFO - [prepare_for_modeling:411] - ✅ Prepared 50000 samples with 52 numeric features
+2026-04-07 18:46:29 - etl - INFO - [prepare_for_modeling:412] -    Target distribution: {0: 50000}
+2026-04-07 18:46:29 - etl - INFO - [run_full_pipeline:461] - ✅ ETL Pipeline completed successfully
+2026-04-07 18:46:29 - etl - INFO - [run_full_pipeline:462] -    Report: {'timestamp': '2026-04-07T18:46:29.364732', 'raw_records': 50000, 'cleaned_records': 50000, 'final_records': 50000, 'features': 52, 'target_positive': 0, 'target_negative': 50000, 'etl_log': [{'timestamp': '2026-04-07T18:46:28.712495', 'step': 'Extract', 'message': 'Extracted 50000 records'}, {'timestamp': '2026-04-07T18:46:28.720216', 'step': 'Validate', 'message': 'Found 0 validation issues'}, {'timestamp': '2026-04-07T18:46:28.741704', 'step': 'Clean - Duplicates', 'message': 'Removed 0 duplicates'}, {'timestamp': '2026-04-07T18:46:29.028263', 'step': 'Clean - Nulls', 'message': 'Filled 0 null values'}, {'timestamp': '2026-04-07T18:46:29.095799', 'step': 'Clean - Outliers', 'message': 'Removed 0 outliers'}, {'timestamp': '2026-04-07T18:46:29.142044', 'step': 'Transform', 'message': 'Scaled numeric features'}, {'timestamp': '2026-04-07T18:46:29.281864', 'step': 'Feature Engineering', 'message': 'Processed 71 features'}, {'timestamp': '2026-04-07T18:46:29.358364', 'step': 'Prepare for Modeling', 'message': 'Created 50000 samples, 52 numeric features'}]}
+2026-08-13 12:09:33 - etl - INFO - [extract_data:44] - 🔄 Starting data extraction from PostgreSQL...
+2026-08-13 12:09:33 - etl - INFO - [extract_data:107] - ✅ Extracted 150 records from PostgreSQL
+2026-08-13 12:09:33 - etl - INFO - [extract_data:108] - ✅ Dataset shape: (150, 32)
+2026-08-13 12:09:42 - etl - INFO - [extract_data:44] - 🔄 Starting data extraction from PostgreSQL...
+2026-08-13 12:09:42 - etl - INFO - [extract_data:107] - ✅ Extracted 150 records from PostgreSQL
+2026-08-13 12:09:42 - etl - INFO - [extract_data:108] - ✅ Dataset shape: (150, 32)
+2026-08-13 12:24:34 - etl.clean - INFO - [validate:24] - Validation issues: 3
+2026-08-13 12:24:34 - etl.clean - INFO - [clean:53] - Cleaned: 2 rows
+2026-08-13 12:24:34 - etl.clean - INFO - [clean:53] - Cleaned: 2 rows
+2026-08-13 12:24:34 - etl.transform - INFO - [engineer_features:49] - Features engineered: 19 columns
+2026-08-13 12:24:34 - etl.clean - INFO - [clean:53] - Cleaned: 2 rows
+2026-08-13 12:24:34 - etl.transform - INFO - [engineer_features:49] - Features engineered: 19 columns
+2026-08-13 12:24:43 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-13 12:24:43 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-13 12:24:43 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-13 12:24:53 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-13 12:24:53 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-13 12:24:53 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-13 12:24:53 - etl.transform - INFO - [engineer_features:49] - Features engineered: 45 columns
+2026-08-13 12:25:32 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-13 12:49:09 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-13 12:49:09 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-13 12:49:09 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-13 12:49:09 - etl.transform - INFO - [engineer_features:49] - Features engineered: 45 columns
+2026-08-13 12:50:08 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-14 11:45:58 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-14 11:50:41 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-14 12:01:49 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-14 12:01:49 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-14 12:01:49 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-14 12:01:49 - etl.transform - INFO - [engineer_features:52] - Features engineered: 45 columns
+2026-08-14 12:01:49 - etl.transform - INFO - [prepare_modeling:70] - Clases antes de balanceo: Pos=0, Neg=150, Ratio=0.00
+2026-08-14 12:01:49 - etl.transform - WARNING - [prepare_modeling:88] - SMOTE falló (The 'k_neighbors' parameter of SMOTE must be an int in the range [1, inf) or an object implementing 'kneighbors' and 'kneighbors_graph'. Got np.int64(-1) instead.), usando datos sin balanceo
+2026-08-14 12:02:59 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-14 12:02:59 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-14 12:02:59 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-14 12:02:59 - etl.transform - INFO - [engineer_features:52] - Features engineered: 45 columns
+2026-08-14 12:02:59 - etl.transform - INFO - [prepare_modeling:70] - Clases antes de balanceo: Pos=0, Neg=150, Ratio=0.00
+2026-08-14 12:02:59 - etl.transform - WARNING - [prepare_modeling:88] - SMOTE falló (The 'k_neighbors' parameter of SMOTE must be an int in the range [1, inf) or an object implementing 'kneighbors' and 'kneighbors_graph'. Got np.int64(-1) instead.), usando datos sin balanceo
+2026-08-14 12:03:43 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-14 12:03:43 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-14 12:03:43 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-14 12:03:43 - etl.transform - INFO - [engineer_features:53] - Features engineered: 45 columns
+2026-08-14 12:03:43 - etl.transform - INFO - [prepare_modeling:71] - Clases antes de balanceo: Pos=53, Neg=97, Ratio=0.55
+2026-08-14 12:05:52 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-14 12:05:52 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-14 12:05:52 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-14 12:05:52 - etl.transform - INFO - [engineer_features:53] - Features engineered: 45 columns
+2026-08-14 12:05:52 - etl.transform - INFO - [prepare_modeling:71] - Clases antes de balanceo: Pos=53, Neg=97, Ratio=0.55
+2026-08-14 12:05:52 - etl.transform - INFO - [prepare_modeling:87] - Clases después de SMOTE: Pos=97, Neg=97, Ratio=1.00
+2026-08-14 12:06:14 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-14 12:06:14 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-14 12:06:14 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-14 12:06:14 - etl.transform - INFO - [engineer_features:53] - Features engineered: 45 columns
+2026-08-14 12:06:14 - etl.transform - INFO - [prepare_modeling:71] - Clases antes de balanceo: Pos=53, Neg=97, Ratio=0.55
+2026-08-14 12:06:14 - etl.transform - INFO - [prepare_modeling:87] - Clases después de SMOTE: Pos=97, Neg=97, Ratio=1.00
+2026-08-14 12:06:59 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 11:59:02 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 11:59:02 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-17 11:59:02 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-17 11:59:02 - etl.transform - INFO - [engineer_features:53] - Features engineered: 45 columns
+2026-08-17 11:59:02 - etl.transform - INFO - [prepare_modeling:71] - Clases antes de balanceo: Pos=53, Neg=97, Ratio=0.55
+2026-08-17 11:59:02 - etl.transform - INFO - [prepare_modeling:87] - Clases después de SMOTE: Pos=97, Neg=97, Ratio=1.00
+2026-08-17 12:15:00 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 12:20:10 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 12:26:52 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 12:28:36 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 12:33:17 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 12:36:30 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 12:42:52 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 12:42:52 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-17 12:42:52 - etl.clean - INFO - [clean:53] - Cleaned: 150 rows
+2026-08-17 12:42:52 - etl.transform - INFO - [engineer_features:53] - Features engineered: 45 columns
+2026-08-17 12:42:52 - etl.transform - INFO - [prepare_modeling:71] - Clases antes de balanceo: Pos=53, Neg=97, Ratio=0.55
+2026-08-17 12:42:52 - etl.transform - INFO - [prepare_modeling:87] - Clases después de SMOTE: Pos=97, Neg=97, Ratio=1.00
+2026-08-17 12:43:10 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 12:51:40 - etl.extract - INFO - [extract_from_view:45] - Extracted 150 records from dataset_ia_cbd view
+2026-08-17 13:01:30 - etl.extract - INFO - [extract_from_view:45] - Extracted 151 records from dataset_ia_cbd view
+2026-08-17 18:03:51 - etl.extract - INFO - [extract_from_view:45] - Extracted 152 records from dataset_ia_cbd view
+2026-08-19 11:16:39 - etl.extract - INFO - [extract_from_view:45] - Extracted 152 records from dataset_ia_cbd view
+2026-08-19 11:16:39 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-19 11:16:39 - etl.clean - INFO - [clean:53] - Cleaned: 152 rows
+2026-08-19 11:16:39 - etl.transform - INFO - [engineer_features:53] - Features engineered: 45 columns
+2026-08-19 11:16:39 - etl.transform - INFO - [prepare_modeling:71] - Clases antes de balanceo: Pos=53, Neg=99, Ratio=0.54
+2026-08-19 11:16:39 - etl.transform - INFO - [prepare_modeling:87] - Clases después de SMOTE: Pos=99, Neg=99, Ratio=1.00
+2026-08-19 11:17:41 - etl.extract - INFO - [extract_from_view:45] - Extracted 152 records from dataset_ia_cbd view
+2026-08-19 11:17:41 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-19 11:17:41 - etl.clean - INFO - [clean:53] - Cleaned: 152 rows
+2026-08-19 11:17:41 - etl.transform - INFO - [engineer_features:53] - Features engineered: 45 columns
+2026-08-19 11:17:41 - etl.transform - INFO - [prepare_modeling:71] - Clases antes de balanceo: Pos=53, Neg=99, Ratio=0.54
+2026-08-19 11:17:41 - etl.transform - INFO - [prepare_modeling:87] - Clases después de SMOTE: Pos=99, Neg=99, Ratio=1.00
+2026-08-19 11:26:37 - etl.extract - INFO - [extract_from_view:45] - Extracted 152 records from dataset_ia_cbd view
+2026-08-19 11:28:40 - etl.extract - INFO - [extract_from_view:45] - Extracted 153 records from dataset_ia_cbd view
+2026-08-19 11:30:41 - etl.extract - INFO - [extract_from_view:45] - Extracted 153 records from dataset_ia_cbd view
+2026-08-19 11:35:19 - etl.extract - INFO - [extract_from_view:45] - Extracted 153 records from dataset_ia_cbd view
+2026-08-19 11:43:08 - etl.extract - INFO - [extract_from_view:45] - Extracted 153 records from dataset_ia_cbd view
+2026-08-19 12:03:07 - etl.extract - INFO - [extract_from_view:45] - Extracted 563 records from dataset_ia_cbd view
+2026-08-19 12:03:07 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-19 12:03:07 - etl.clean - INFO - [clean:53] - Cleaned: 563 rows
+2026-08-19 12:03:07 - etl.transform - INFO - [engineer_features:53] - Features engineered: 45 columns
+2026-08-19 12:03:07 - etl.transform - INFO - [prepare_modeling:71] - Clases antes de balanceo: Pos=435, Neg=128, Ratio=3.40
+2026-08-19 12:03:07 - etl.transform - INFO - [prepare_modeling:87] - Clases después de SMOTE: Pos=435, Neg=435, Ratio=1.00
+2026-08-19 12:14:20 - etl.extract - INFO - [extract_from_view:45] - Extracted 563 records from dataset_ia_cbd view
+2026-08-19 12:16:38 - etl.extract - INFO - [extract_from_view:45] - Extracted 563 records from dataset_ia_cbd view
+2026-08-19 12:19:01 - etl.extract - INFO - [extract_from_view:45] - Extracted 563 records from dataset_ia_cbd view
+2026-08-20 11:32:22 - etl.extract - INFO - [extract_from_view:45] - Extracted 563 records from dataset_ia_cbd view
+2026-08-20 11:32:22 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-20 11:32:22 - etl.clean - INFO - [clean:53] - Cleaned: 563 rows
+2026-08-20 11:32:22 - etl.transform - INFO - [engineer_features:56] - Features engineered: 44 columns
+2026-08-20 11:32:22 - etl.transform - INFO - [prepare_modeling:74] - Clases antes de balanceo: Pos=435, Neg=128, Ratio=3.40
+2026-08-20 11:32:22 - etl.transform - INFO - [prepare_modeling:90] - Clases después de SMOTE: Pos=435, Neg=435, Ratio=1.00
+2026-08-20 11:33:37 - etl.extract - INFO - [extract_from_view:45] - Extracted 563 records from dataset_ia_cbd view
+2026-08-20 12:51:09 - etl.extract - INFO - [extract_from_view:45] - Extracted 563 records from dataset_ia_cbd view
+2026-08-20 12:56:18 - etl.extract - INFO - [extract_from_view:45] - Extracted 563 records from dataset_ia_cbd view
+2026-08-20 13:05:43 - etl.extract - INFO - [extract_from_view:45] - Extracted 564 records from dataset_ia_cbd view
+2026-08-20 13:05:43 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-20 13:05:43 - etl.clean - INFO - [clean:53] - Cleaned: 564 rows
+2026-08-20 13:05:43 - etl.transform - INFO - [engineer_features:56] - Features engineered: 44 columns
+2026-08-20 13:05:43 - etl.transform - INFO - [prepare_modeling:74] - Clases antes de balanceo: Pos=436, Neg=128, Ratio=3.41
+2026-08-20 13:05:43 - etl.transform - INFO - [prepare_modeling:90] - Clases después de SMOTE: Pos=436, Neg=436, Ratio=1.00
+2026-08-20 13:13:37 - etl.extract - INFO - [extract_from_view:45] - Extracted 564 records from dataset_ia_cbd view
+2026-08-20 13:15:45 - etl.extract - INFO - [extract_from_view:45] - Extracted 564 records from dataset_ia_cbd view
+2026-08-20 13:33:24 - etl.extract - INFO - [extract_from_view:45] - Extracted 564 records from dataset_ia_cbd view
+2026-08-20 13:40:06 - etl.extract - INFO - [extract_from_view:45] - Extracted 564 records from dataset_ia_cbd view
+2026-08-20 13:40:06 - etl.clean - INFO - [validate:24] - Validation issues: 0
+2026-08-20 13:40:07 - etl.clean - INFO - [clean:53] - Cleaned: 564 rows
+2026-08-20 13:40:07 - etl.transform - INFO - [engineer_features:56] - Features engineered: 44 columns
+2026-08-20 13:40:07 - etl.transform - INFO - [prepare_modeling:74] - Clases antes de balanceo: Pos=436, Neg=128, Ratio=3.41
+2026-08-20 13:40:07 - etl.transform - INFO - [prepare_modeling:90] - Clases después de SMOTE: Pos=436, Neg=436, Ratio=1.00
+2026-08-20 13:40:56 - etl.extract - INFO - [extract_from_view:45] - Extracted 564 records from dataset_ia_cbd view
+2026-08-20 13:45:38 - etl.extract - INFO - [extract_from_view:45] - Extracted 564 records from dataset_ia_cbd view

@@ -1,0 +1,277 @@
+{
+  "timestamp": "2026-04-07T18:46:43.589878",
+  "project": "CBD Veterinary AI System",
+  "methodology": "KDD (Knowledge Discovery in Databases)",
+  "etl": {
+    "raw_records": 50000,
+    "final_records": 50000,
+    "features": 52,
+    "steps": [
+      {
+        "timestamp": "2026-04-07T18:46:28.712495",
+        "step": "Extract",
+        "message": "Extracted 50000 records"
+      },
+      {
+        "timestamp": "2026-04-07T18:46:28.720216",
+        "step": "Validate",
+        "message": "Found 0 validation issues"
+      },
+      {
+        "timestamp": "2026-04-07T18:46:28.741704",
+        "step": "Clean - Duplicates",
+        "message": "Removed 0 duplicates"
+      },
+      {
+        "timestamp": "2026-04-07T18:46:29.028263",
+        "step": "Clean - Nulls",
+        "message": "Filled 0 null values"
+      },
+      {
+        "timestamp": "2026-04-07T18:46:29.095799",
+        "step": "Clean - Outliers",
+        "message": "Removed 0 outliers"
+      },
+      {
+        "timestamp": "2026-04-07T18:46:29.142044",
+        "step": "Transform",
+        "message": "Scaled numeric features"
+      },
+      {
+        "timestamp": "2026-04-07T18:46:29.281864",
+        "step": "Feature Engineering",
+        "message": "Processed 71 features"
+      },
+      {
+        "timestamp": "2026-04-07T18:46:29.358364",
+        "step": "Prepare for Modeling",
+        "message": "Created 50000 samples, 52 numeric features"
+      }
+    ]
+  },
+  "training": {
+    "train_samples": 35000,
+    "test_samples": 15000,
+    "models": [
+      "random_forest",
+      "xgboost",
+      "kmeans",
+      "kmeans_scaler"
+    ],
+    "results": {
+      "random_forest": {
+        "model_name": "Random Forest",
+        "timestamp": "2026-04-07T18:46:29.845145",
+        "train_accuracy": 1.0,
+        "train_precision": 0.0,
+        "train_recall": 0.0,
+        "train_f1": 0.0,
+        "train_auc": null,
+        "test_accuracy": 1.0,
+        "test_precision": 0.0,
+        "test_recall": 0.0,
+        "test_f1": 0.0,
+        "test_auc": null,
+        "confusion_matrix": [
+          [
+            15000
+          ]
+        ],
+        "classification_report": {
+          "0": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 15000.0
+          },
+          "accuracy": 1.0,
+          "macro avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 15000.0
+          },
+          "weighted avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 15000.0
+          }
+        },
+        "feature_importance": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "xgboost": {
+        "model_name": "XGBoost",
+        "timestamp": "2026-04-07T18:46:30.044084",
+        "train_accuracy": 1.0,
+        "train_precision": 0.0,
+        "train_recall": 0.0,
+        "train_f1": 0.0,
+        "train_auc": NaN,
+        "test_accuracy": 1.0,
+        "test_precision": 0.0,
+        "test_recall": 0.0,
+        "test_f1": 0.0,
+        "test_auc": NaN,
+        "confusion_matrix": [
+          [
+            15000
+          ]
+        ],
+        "classification_report": {
+          "0": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 15000.0
+          },
+          "accuracy": 1.0,
+          "macro avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 15000.0
+          },
+          "weighted avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 15000.0
+          }
+        },
+        "feature_importance": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "kmeans": {
+        "model": "KMeans(n_clusters=4, n_init=10, random_state=42)",
+        "scaler": "StandardScaler()",
+        "n_clusters": 4,
+        "inertia": 1049249.7444302682,
+        "silhouette_score": 0.06805825407422175,
+        "cluster_labels": "[0 0 2 ... 3 0 2]"
+      }
+    },
+    "cross_validation": {
+      "random_forest": {
+        "mean_cv_f1": NaN,
+        "std_cv_f1": NaN,
+        "fold_scores": "[nan nan nan nan nan]"
+      },
+      "xgboost": {
+        "mean_cv_f1": NaN,
+        "std_cv_f1": NaN,
+        "fold_scores": "[nan nan nan nan nan]"
+      }
+    }
+  },
+  "best_model": {
+    "name": null,
+    "test_f1": 0,
+    "results": null
+  }
+}

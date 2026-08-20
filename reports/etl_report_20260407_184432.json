@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-04-07T18:44:32.783259",
+  "raw_records": 50000,
+  "cleaned_records": 0,
+  "final_records": 0,
+  "features": 17,
+  "target_positive": 0,
+  "target_negative": 0,
+  "etl_log": [
+    {
+      "timestamp": "2026-04-07T18:44:32.554635",
+      "step": "Extract",
+      "message": "Extracted 50000 records"
+    },
+    {
+      "timestamp": "2026-04-07T18:44:32.562570",
+      "step": "Validate",
+      "message": "Found 0 validation issues"
+    },
+    {
+      "timestamp": "2026-04-07T18:44:32.590255",
+      "step": "Clean - Duplicates",
+      "message": "Removed 0 duplicates"
+    },
+    {
+      "timestamp": "2026-04-07T18:44:32.737021",
+      "step": "Clean - Nulls",
+      "message": "Filled 0 null values"
+    },
+    {
+      "timestamp": "2026-04-07T18:44:32.767864",
+      "step": "Clean - Outliers",
+      "message": "Removed 50000 outliers"
+    },
+    {
+      "timestamp": "2026-04-07T18:44:32.770900",
+      "step": "Transform",
+      "message": "Scaled numeric features"
+    },
+    {
+      "timestamp": "2026-04-07T18:44:32.779099",
+      "step": "Feature Engineering",
+      "message": "Processed 71 features"
+    },
+    {
+      "timestamp": "2026-04-07T18:44:32.783110",
+      "step": "Prepare for Modeling",
+      "message": "Created 0 samples, 17 features"
+    }
+  ]
+}

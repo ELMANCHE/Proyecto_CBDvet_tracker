@@ -1,0 +1,62 @@
+# ═══════════════════════════════════════════════════════════════
+# CBD TRACKER v2 — COMANDOS DE EJECUCIÓN
+# ═══════════════════════════════════════════════════════════════
+
+cd /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker
+source .venv/bin/activate
+
+# 1. Instalar dependencias nuevas
+pip install -r requirements.txt
+
+# 2. Migraciones Alembic (tablas staging, audit, usuario)
+alembic upgrade head
+
+# 3. Seed usuario admin + tablas auxiliares
+python scripts/seed.py
+
+# 4. Recrear vista dataset_ia_cbd (después de cambios en BD)
+python scripts/recreate_dataset_view.py
+
+# ═══════════════════════════════════════════════════════════════
+# REENTRENAR MODELOS CON DATOS NUEVOS
+# ═══════════════════════════════════════════════════════════════
+
+python main.py
+
+# ═══════════════════════════════════════════════════════════════
+# EJECUTAR SISTEMA (2 terminales)
+# ═══════════════════════════════════════════════════════════════
+
+# TERMINAL 1 — API (puerto 8000)
+export API_KEY=cbd-dev-key-change-me
+python api.py
+
+# TERMINAL 2 — Streamlit (puerto 8501)
+export API_KEY=cbd-dev-key-change-me
+streamlit run streamlit_app.py
+
+# ═══════════════════════════════════════════════════════════════
+# URLs
+# ═══════════════════════════════════════════════════════════════
+# API Docs:    http://localhost:8000/docs
+# Dashboard:   http://localhost:8501
+
+# ═══════════════════════════════════════════════════════════════
+# TESTS
+# ═══════════════════════════════════════════════════════════════
+pytest tests/ -v
+
+# ═══════════════════════════════════════════════════════════════
+# BACKUP BD
+# ═══════════════════════════════════════════════════════════════
+python scripts/backup_db.py
+
+# ═══════════════════════════════════════════════════════════════
+# TEST API
+# ═══════════════════════════════════════════════════════════════
+curl -H "X-API-Key: cbd-dev-key-change-me" http://localhost:8000/health
+
+curl -X POST "http://localhost:8000/predict?explain=true" \
+  -H "X-API-Key: cbd-dev-key-change-me" \
+  -H "Content-Type: application/json" \
+  -d '{"especie":"Canino","peso_kg":25,"sexo":"M","edad_anios":5,"enfermedad":"Artritis","severidad":"Moderada","duracion_dias":90,"dosis_mg_kg":2.5,"frecuencia":"Diaria","tipo_producto":"Aceite","estado_nutricional":"Normal","nivel_estres":5,"cumplimiento":1.0}'

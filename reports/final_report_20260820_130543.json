@@ -1,0 +1,252 @@
+{
+  "timestamp": "2026-08-20T13:05:43.649857",
+  "project": "CBD Veterinary AI System",
+  "methodology": "KDD (Knowledge Discovery in Databases)",
+  "etl": {
+    "raw_records": 564,
+    "final_records": 872,
+    "features": 29,
+    "steps": [
+      {
+        "timestamp": "2026-08-20T13:05:43.061111",
+        "step": "Extract",
+        "message": "564 records"
+      },
+      {
+        "timestamp": "2026-08-20T13:05:43.061681",
+        "step": "Validate",
+        "message": "{'weight_anomalies': 0, 'age_anomalies': 0, 'dosis_anomalies': 0}"
+      },
+      {
+        "timestamp": "2026-08-20T13:05:43.068278",
+        "step": "Clean",
+        "message": "564 rows"
+      },
+      {
+        "timestamp": "2026-08-20T13:05:43.076828",
+        "step": "FeatureEngineering",
+        "message": "44 cols"
+      },
+      {
+        "timestamp": "2026-08-20T13:05:43.106457",
+        "step": "Prepare",
+        "message": "872 samples, 29 features"
+      }
+    ]
+  },
+  "training": {
+    "train_samples": 610,
+    "test_samples": 262,
+    "models": [
+      "xgboost"
+    ],
+    "results": {
+      "xgboost": {
+        "model_name": "XGBoost",
+        "timestamp": "2026-08-20T13:05:43.238155",
+        "train_accuracy": 0.8655737704918033,
+        "train_precision": 0.8517350157728707,
+        "train_recall": 0.8852459016393442,
+        "train_f1": 0.8681672025723473,
+        "train_auc": 0.9556893308250469,
+        "test_accuracy": 0.8358778625954199,
+        "test_precision": 0.8235294117647058,
+        "test_recall": 0.8549618320610687,
+        "test_f1": 0.8389513108614233,
+        "test_auc": 0.9045510168405104,
+        "confusion_matrix": [
+          [
+            107,
+            24
+          ],
+          [
+            19,
+            112
+          ]
+        ],
+        "classification_report": {
+          "0": {
+            "precision": 0.8492063492063492,
+            "recall": 0.816793893129771,
+            "f1-score": 0.8326848249027238,
+            "support": 131.0
+          },
+          "1": {
+            "precision": 0.8235294117647058,
+            "recall": 0.8549618320610687,
+            "f1-score": 0.8389513108614233,
+            "support": 131.0
+          },
+          "accuracy": 0.8358778625954199,
+          "macro avg": {
+            "precision": 0.8363678804855275,
+            "recall": 0.8358778625954199,
+            "f1-score": 0.8358180678820735,
+            "support": 262.0
+          },
+          "weighted avg": {
+            "precision": 0.8363678804855276,
+            "recall": 0.8358778625954199,
+            "f1-score": 0.8358180678820736,
+            "support": 262.0
+          }
+        },
+        "feature_importance": [
+          0.1295461505651474,
+          0.015478182584047318,
+          0.01937088742852211,
+          0.01757236197590828,
+          0.021197907626628876,
+          0.06503118574619293,
+          0.017075171694159508,
+          0.1443503350019455,
+          0.012704449705779552,
+          0.018683521077036858,
+          0.011691945604979992,
+          0.01429797150194645,
+          0.018303219228982925,
+          0.017236433923244476,
+          0.0194782055914402,
+          0.024004163220524788,
+          0.03482281044125557,
+          0.0418512262403965,
+          0.04153568670153618,
+          0.023752445355057716,
+          0.029893960803747177,
+          0.017325840890407562,
+          0.014882652088999748,
+          0.035296957939863205,
+          0.018804091960191727,
+          0.014895020052790642,
+          0.1141250878572464,
+          0.0,
+          0.04679208993911743
+        ]
+      },
+      "feature_names": [
+        "consulta_id",
+        "peso",
+        "nivel_estres",
+        "alt",
+        "ast",
+        "dosis_mg_kg",
+        "peso_kg",
+        "consulta_id_scaled",
+        "peso_scaled",
+        "nivel_estres_scaled",
+        "alt_scaled",
+        "ast_scaled",
+        "dosis_mg_kg_scaled",
+        "peso_kg_scaled",
+        "mes",
+        "dia_semana",
+        "es_fin_semana",
+        "grupo_peso_num",
+        "codigo_paciente_encoded",
+        "especie_encoded",
+        "raza_encoded",
+        "sexo_encoded",
+        "enfermedad_encoded",
+        "severidad_encoded",
+        "actividad_fisica_encoded",
+        "apetito_encoded",
+        "frecuencia_encoded",
+        "tipo_extracto_encoded",
+        "respuesta_encoded"
+      ]
+    },
+    "cross_validation": {
+      "xgboost": {
+        "mean_cv_f1": 0.8565533328011062,
+        "std_cv_f1": 0.010944998273048543,
+        "fold_scores": "[0.86614173 0.85483871 0.86440678 0.86131387 0.83606557]"
+      }
+    }
+  },
+  "best_model": {
+    "name": "xgboost",
+    "test_f1": 0.8389513108614233,
+    "results": {
+      "model_name": "XGBoost",
+      "timestamp": "2026-08-20T13:05:43.238155",
+      "train_accuracy": 0.8655737704918033,
+      "train_precision": 0.8517350157728707,
+      "train_recall": 0.8852459016393442,
+      "train_f1": 0.8681672025723473,
+      "train_auc": 0.9556893308250469,
+      "test_accuracy": 0.8358778625954199,
+      "test_precision": 0.8235294117647058,
+      "test_recall": 0.8549618320610687,
+      "test_f1": 0.8389513108614233,
+      "test_auc": 0.9045510168405104,
+      "confusion_matrix": [
+        [
+          107,
+          24
+        ],
+        [
+          19,
+          112
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.8492063492063492,
+          "recall": 0.816793893129771,
+          "f1-score": 0.8326848249027238,
+          "support": 131.0
+        },
+        "1": {
+          "precision": 0.8235294117647058,
+          "recall": 0.8549618320610687,
+          "f1-score": 0.8389513108614233,
+          "support": 131.0
+        },
+        "accuracy": 0.8358778625954199,
+        "macro avg": {
+          "precision": 0.8363678804855275,
+          "recall": 0.8358778625954199,
+          "f1-score": 0.8358180678820735,
+          "support": 262.0
+        },
+        "weighted avg": {
+          "precision": 0.8363678804855276,
+          "recall": 0.8358778625954199,
+          "f1-score": 0.8358180678820736,
+          "support": 262.0
+        }
+      },
+      "feature_importance": [
+        0.1295461505651474,
+        0.015478182584047318,
+        0.01937088742852211,
+        0.01757236197590828,
+        0.021197907626628876,
+        0.06503118574619293,
+        0.017075171694159508,
+        0.1443503350019455,
+        0.012704449705779552,
+        0.018683521077036858,
+        0.011691945604979992,
+        0.01429797150194645,
+        0.018303219228982925,
+        0.017236433923244476,
+        0.0194782055914402,
+        0.024004163220524788,
+        0.03482281044125557,
+        0.0418512262403965,
+        0.04153568670153618,
+        0.023752445355057716,
+        0.029893960803747177,
+        0.017325840890407562,
+        0.014882652088999748,
+        0.035296957939863205,
+        0.018804091960191727,
+        0.014895020052790642,
+        0.1141250878572464,
+        0.0,
+        0.04679208993911743
+      ]
+    }
+  }
+}

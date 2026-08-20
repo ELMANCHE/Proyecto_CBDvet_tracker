@@ -1,0 +1,634 @@
+2026-04-07 18:44:32 - training - INFO - [__init__:59] - ✅ ModelTrainer initialized with random_state=42
+2026-04-07 18:44:32 - training - INFO - [prepare_data:70] - 📊 Preparing data for training...
+2026-04-07 18:44:32 - training - INFO - [prepare_data:71] -    Total samples: 0
+2026-04-07 18:44:32 - training - INFO - [prepare_data:72] -    Positive class: 0 (nan%)
+2026-04-07 18:44:32 - training - INFO - [prepare_data:73] -    Negative class: 0 (nan%)
+2026-04-07 18:45:26 - training - INFO - [__init__:59] - ✅ ModelTrainer initialized with random_state=42
+2026-04-07 18:45:26 - training - INFO - [prepare_data:70] - 📊 Preparing data for training...
+2026-04-07 18:45:26 - training - INFO - [prepare_data:71] -    Total samples: 50000
+2026-04-07 18:45:26 - training - INFO - [prepare_data:72] -    Positive class: 0 (0.0%)
+2026-04-07 18:45:26 - training - INFO - [prepare_data:73] -    Negative class: 50000 (100.0%)
+2026-04-07 18:45:26 - training - INFO - [prepare_data:83] - ✅ Train/Test split completed
+2026-04-07 18:45:26 - training - INFO - [prepare_data:84] -    Train set: 35000 samples (70.0%)
+2026-04-07 18:45:26 - training - INFO - [prepare_data:85] -    Test set: 15000 samples (30.0%)
+2026-04-07 18:45:26 - training - INFO - [train_random_forest:98] - 🌲 Training Random Forest Classifier...
+2026-04-07 18:45:26 - training - ERROR - [train_random_forest:129] - ❌ Error training Random Forest: could not convert string to float: 'grave'
+2026-04-07 18:46:29 - training - INFO - [__init__:59] - ✅ ModelTrainer initialized with random_state=42
+2026-04-07 18:46:29 - training - INFO - [prepare_data:70] - 📊 Preparing data for training...
+2026-04-07 18:46:29 - training - INFO - [prepare_data:71] -    Total samples: 50000
+2026-04-07 18:46:29 - training - INFO - [prepare_data:72] -    Positive class: 0 (0.0%)
+2026-04-07 18:46:29 - training - INFO - [prepare_data:73] -    Negative class: 50000 (100.0%)
+2026-04-07 18:46:29 - training - INFO - [prepare_data:83] - ✅ Train/Test split completed
+2026-04-07 18:46:29 - training - INFO - [prepare_data:84] -    Train set: 35000 samples (70.0%)
+2026-04-07 18:46:29 - training - INFO - [prepare_data:85] -    Test set: 15000 samples (30.0%)
+2026-04-07 18:46:29 - training - INFO - [train_random_forest:98] - 🌲 Training Random Forest Classifier...
+2026-04-07 18:46:29 - training - INFO - [_evaluate_model:360] -    Random Forest Test Accuracy: 1.0000
+2026-04-07 18:46:29 - training - INFO - [_evaluate_model:361] -    Random Forest Test F1: 0.0000
+2026-04-07 18:46:29 - training - INFO - [_evaluate_model:362] -    Random Forest Test Precision: 0.0000
+2026-04-07 18:46:29 - training - INFO - [_evaluate_model:363] -    Random Forest Test Recall: 0.0000
+2026-04-07 18:46:29 - training - INFO - [train_xgboost:145] - 🚀 Training XGBoost Classifier...
+2026-04-07 18:46:30 - training - INFO - [_evaluate_model:360] -    XGBoost Test Accuracy: 1.0000
+2026-04-07 18:46:30 - training - INFO - [_evaluate_model:361] -    XGBoost Test F1: 0.0000
+2026-04-07 18:46:30 - training - INFO - [_evaluate_model:362] -    XGBoost Test Precision: 0.0000
+2026-04-07 18:46:30 - training - INFO - [_evaluate_model:363] -    XGBoost Test Recall: 0.0000
+2026-04-07 18:46:30 - training - INFO - [train_clustering:196] - 🔍 Training K-Means Clustering (k=4)...
+2026-04-07 18:46:41 - training - INFO - [train_clustering:230] - ✅ K-Means training completed
+2026-04-07 18:46:41 - training - INFO - [train_clustering:231] -    Inertia: 1049249.74
+2026-04-07 18:46:41 - training - INFO - [train_clustering:232] -    Silhouette Score: 0.0681
+2026-04-07 18:46:41 - training - INFO - [cross_validate_models:251] - 🔄 Performing 5-Fold Cross-Validation...
+2026-04-07 18:46:41 - training - INFO - [cross_validate_models:258] -    Cross-validating Random Forest...
+2026-04-07 18:46:42 - training - INFO - [cross_validate_models:268] -    RF CV F1: nan (+/- nan)
+2026-04-07 18:46:42 - training - INFO - [cross_validate_models:272] -    Cross-validating XGBoost...
+2026-04-07 18:46:43 - training - INFO - [cross_validate_models:282] -    XGB CV F1: nan (+/- nan)
+2026-04-07 18:46:43 - training - INFO - [cross_validate_models:284] - ✅ Cross-validation completed
+2026-04-07 18:46:43 - training - INFO - [print_summary:429] - ================================================================================
+2026-04-07 18:46:43 - training - INFO - [print_summary:430] - TRAINING SUMMARY
+2026-04-07 18:46:43 - training - INFO - [print_summary:431] - ================================================================================
+2026-04-07 18:46:43 - training - INFO - [print_summary:435] - 
+Random Forest:
+2026-04-07 18:46:43 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-04-07 18:46:43 - training - INFO - [print_summary:437] -   Test Precision: 0.0000
+2026-04-07 18:46:43 - training - INFO - [print_summary:438] -   Test Recall:    0.0000
+2026-04-07 18:46:43 - training - INFO - [print_summary:439] -   Test F1:        0.0000
+2026-04-07 18:46:43 - training - INFO - [print_summary:435] - 
+XGBoost:
+2026-04-07 18:46:43 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-04-07 18:46:43 - training - INFO - [print_summary:437] -   Test Precision: 0.0000
+2026-04-07 18:46:43 - training - INFO - [print_summary:438] -   Test Recall:    0.0000
+2026-04-07 18:46:43 - training - INFO - [print_summary:439] -   Test F1:        0.0000
+2026-04-07 18:46:43 - training - INFO - [print_summary:441] -   Test AUC-ROC:   nan
+2026-04-07 18:46:43 - training - INFO - [save_models:376] - 💾 Saving trained models...
+2026-04-07 18:46:43 - training - INFO - [save_models:390] -    ✅ Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260407_184643.joblib
+2026-04-07 18:46:43 - training - INFO - [save_models:390] -    ✅ Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260407_184643.joblib
+2026-04-07 18:46:43 - training - INFO - [save_models:390] -    ✅ Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260407_184643.joblib
+2026-04-07 18:46:43 - training - INFO - [save_models:397] -    ✅ Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260407_184643.joblib
+2026-04-07 18:46:43 - training - INFO - [save_models:399] - ✅ Models saved successfully
+2026-08-13 12:24:53 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-13 12:24:53 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-13 12:24:53 - training - INFO - [prepare_data:70] -    Total samples: 150
+2026-08-13 12:24:53 - training - INFO - [prepare_data:71] -    Positive class: 0 (0.0%)
+2026-08-13 12:24:53 - training - INFO - [prepare_data:72] -    Negative class: 150 (100.0%)
+2026-08-13 12:24:53 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-13 12:24:53 - training - INFO - [prepare_data:83] -    Train set: 105 samples (70.0%)
+2026-08-13 12:24:53 - training - INFO - [prepare_data:84] -    Test set: 45 samples (30.0%)
+2026-08-13 12:24:53 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-13 12:24:53 - training - INFO - [_evaluate_model:357] -    Random Forest Test Accuracy: 1.0000
+2026-08-13 12:24:53 - training - INFO - [_evaluate_model:358] -    Random Forest Test F1: 0.0000
+2026-08-13 12:24:53 - training - INFO - [_evaluate_model:359] -    Random Forest Test Precision: 0.0000
+2026-08-13 12:24:53 - training - INFO - [_evaluate_model:360] -    Random Forest Test Recall: 0.0000
+2026-08-13 12:24:53 - training - INFO - [train_xgboost:142] - 🚀 Training XGBoost Classifier...
+2026-08-13 12:24:53 - training - INFO - [_evaluate_model:357] -    XGBoost Test Accuracy: 1.0000
+2026-08-13 12:24:53 - training - INFO - [_evaluate_model:358] -    XGBoost Test F1: 0.0000
+2026-08-13 12:24:53 - training - INFO - [_evaluate_model:359] -    XGBoost Test Precision: 0.0000
+2026-08-13 12:24:53 - training - INFO - [_evaluate_model:360] -    XGBoost Test Recall: 0.0000
+2026-08-13 12:24:53 - training - INFO - [train_clustering:193] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-13 12:24:53 - training - INFO - [train_clustering:227] -  K-Means training completed
+2026-08-13 12:24:53 - training - INFO - [train_clustering:228] -    Inertia: 1806.20
+2026-08-13 12:24:53 - training - INFO - [train_clustering:229] -    Silhouette Score: 0.2123
+2026-08-13 12:24:53 - training - INFO - [cross_validate_models:248] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-13 12:24:53 - training - INFO - [cross_validate_models:255] -    Cross-validating Random Forest...
+2026-08-13 12:24:54 - training - INFO - [cross_validate_models:265] -    RF CV F1: nan (+/- nan)
+2026-08-13 12:24:54 - training - INFO - [cross_validate_models:269] -    Cross-validating XGBoost...
+2026-08-13 12:24:54 - training - INFO - [cross_validate_models:279] -    XGB CV F1: nan (+/- nan)
+2026-08-13 12:24:54 - training - INFO - [cross_validate_models:281] - Cross-validation completed
+2026-08-13 12:24:54 - training - INFO - [print_summary:429] - ================================================================================
+2026-08-13 12:24:54 - training - INFO - [print_summary:430] - TRAINING SUMMARY
+2026-08-13 12:24:54 - training - INFO - [print_summary:431] - ================================================================================
+2026-08-13 12:24:54 - training - INFO - [print_summary:435] - 
+Random Forest:
+2026-08-13 12:24:54 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-13 12:24:54 - training - INFO - [print_summary:437] -   Test Precision: 0.0000
+2026-08-13 12:24:54 - training - INFO - [print_summary:438] -   Test Recall:    0.0000
+2026-08-13 12:24:54 - training - INFO - [print_summary:439] -   Test F1:        0.0000
+2026-08-13 12:24:54 - training - INFO - [print_summary:435] - 
+XGBoost:
+2026-08-13 12:24:54 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-13 12:24:54 - training - INFO - [print_summary:437] -   Test Precision: 0.0000
+2026-08-13 12:24:54 - training - INFO - [print_summary:438] -   Test Recall:    0.0000
+2026-08-13 12:24:54 - training - INFO - [print_summary:439] -   Test F1:        0.0000
+2026-08-13 12:24:54 - training - INFO - [print_summary:441] -   Test AUC-ROC:   nan
+2026-08-13 12:24:54 - training - INFO - [save_models:373] -  Saving trained models...
+2026-08-13 12:24:54 - training - INFO - [save_models:387] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260813_122454.joblib
+2026-08-13 12:24:54 - training - INFO - [save_models:387] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260813_122454.joblib
+2026-08-13 12:24:54 - training - INFO - [save_models:387] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260813_122454.joblib
+2026-08-13 12:24:54 - training - INFO - [save_models:397] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260813_122454.joblib
+2026-08-13 12:24:54 - training - INFO - [save_models:399] - Models saved successfully
+2026-08-13 12:49:09 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-13 12:49:09 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-13 12:49:09 - training - INFO - [prepare_data:70] -    Total samples: 150
+2026-08-13 12:49:09 - training - INFO - [prepare_data:71] -    Positive class: 0 (0.0%)
+2026-08-13 12:49:09 - training - INFO - [prepare_data:72] -    Negative class: 150 (100.0%)
+2026-08-13 12:49:09 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-13 12:49:09 - training - INFO - [prepare_data:83] -    Train set: 105 samples (70.0%)
+2026-08-13 12:49:09 - training - INFO - [prepare_data:84] -    Test set: 45 samples (30.0%)
+2026-08-13 12:49:09 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-13 12:49:09 - training - INFO - [_evaluate_model:357] -    Random Forest Test Accuracy: 1.0000
+2026-08-13 12:49:09 - training - INFO - [_evaluate_model:358] -    Random Forest Test F1: 0.0000
+2026-08-13 12:49:09 - training - INFO - [_evaluate_model:359] -    Random Forest Test Precision: 0.0000
+2026-08-13 12:49:09 - training - INFO - [_evaluate_model:360] -    Random Forest Test Recall: 0.0000
+2026-08-13 12:49:09 - training - INFO - [train_xgboost:142] - 🚀 Training XGBoost Classifier...
+2026-08-13 12:49:09 - training - INFO - [_evaluate_model:357] -    XGBoost Test Accuracy: 1.0000
+2026-08-13 12:49:09 - training - INFO - [_evaluate_model:358] -    XGBoost Test F1: 0.0000
+2026-08-13 12:49:09 - training - INFO - [_evaluate_model:359] -    XGBoost Test Precision: 0.0000
+2026-08-13 12:49:09 - training - INFO - [_evaluate_model:360] -    XGBoost Test Recall: 0.0000
+2026-08-13 12:49:09 - training - INFO - [train_clustering:193] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-13 12:49:09 - training - INFO - [train_clustering:227] -  K-Means training completed
+2026-08-13 12:49:09 - training - INFO - [train_clustering:228] -    Inertia: 1809.46
+2026-08-13 12:49:09 - training - INFO - [train_clustering:229] -    Silhouette Score: 0.1937
+2026-08-13 12:49:09 - training - INFO - [cross_validate_models:248] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-13 12:49:09 - training - INFO - [cross_validate_models:255] -    Cross-validating Random Forest...
+2026-08-13 12:49:10 - training - INFO - [cross_validate_models:265] -    RF CV F1: nan (+/- nan)
+2026-08-13 12:49:10 - training - INFO - [cross_validate_models:269] -    Cross-validating XGBoost...
+2026-08-13 12:49:10 - training - INFO - [cross_validate_models:279] -    XGB CV F1: nan (+/- nan)
+2026-08-13 12:49:10 - training - INFO - [cross_validate_models:281] - Cross-validation completed
+2026-08-13 12:49:10 - training - INFO - [print_summary:429] - ================================================================================
+2026-08-13 12:49:10 - training - INFO - [print_summary:430] - TRAINING SUMMARY
+2026-08-13 12:49:10 - training - INFO - [print_summary:431] - ================================================================================
+2026-08-13 12:49:10 - training - INFO - [print_summary:435] - 
+Random Forest:
+2026-08-13 12:49:10 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-13 12:49:10 - training - INFO - [print_summary:437] -   Test Precision: 0.0000
+2026-08-13 12:49:10 - training - INFO - [print_summary:438] -   Test Recall:    0.0000
+2026-08-13 12:49:10 - training - INFO - [print_summary:439] -   Test F1:        0.0000
+2026-08-13 12:49:10 - training - INFO - [print_summary:435] - 
+XGBoost:
+2026-08-13 12:49:10 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-13 12:49:10 - training - INFO - [print_summary:437] -   Test Precision: 0.0000
+2026-08-13 12:49:10 - training - INFO - [print_summary:438] -   Test Recall:    0.0000
+2026-08-13 12:49:10 - training - INFO - [print_summary:439] -   Test F1:        0.0000
+2026-08-13 12:49:10 - training - INFO - [print_summary:441] -   Test AUC-ROC:   nan
+2026-08-13 12:49:10 - training - INFO - [save_models:373] -  Saving trained models...
+2026-08-13 12:49:10 - training - INFO - [save_models:387] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260813_124910.joblib
+2026-08-13 12:49:10 - training - INFO - [save_models:387] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260813_124910.joblib
+2026-08-13 12:49:10 - training - INFO - [save_models:387] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260813_124910.joblib
+2026-08-13 12:49:10 - training - INFO - [save_models:397] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260813_124910.joblib
+2026-08-13 12:49:10 - training - INFO - [save_models:399] - Models saved successfully
+2026-08-14 12:01:49 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-14 12:01:49 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-14 12:01:49 - training - INFO - [prepare_data:70] -    Total samples: 150
+2026-08-14 12:01:49 - training - INFO - [prepare_data:71] -    Positive class: 0 (0.0%)
+2026-08-14 12:01:49 - training - INFO - [prepare_data:72] -    Negative class: 150 (100.0%)
+2026-08-14 12:01:49 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-14 12:01:49 - training - INFO - [prepare_data:83] -    Train set: 105 samples (70.0%)
+2026-08-14 12:01:49 - training - INFO - [prepare_data:84] -    Test set: 45 samples (30.0%)
+2026-08-14 12:01:49 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-14 12:01:50 - training - INFO - [_evaluate_model:357] -    Random Forest Test Accuracy: 1.0000
+2026-08-14 12:01:50 - training - INFO - [_evaluate_model:358] -    Random Forest Test F1: 0.0000
+2026-08-14 12:01:50 - training - INFO - [_evaluate_model:359] -    Random Forest Test Precision: 0.0000
+2026-08-14 12:01:50 - training - INFO - [_evaluate_model:360] -    Random Forest Test Recall: 0.0000
+2026-08-14 12:01:50 - training - INFO - [train_xgboost:142] - 🚀 Training XGBoost Classifier...
+2026-08-14 12:01:50 - training - INFO - [_evaluate_model:357] -    XGBoost Test Accuracy: 1.0000
+2026-08-14 12:01:50 - training - INFO - [_evaluate_model:358] -    XGBoost Test F1: 0.0000
+2026-08-14 12:01:50 - training - INFO - [_evaluate_model:359] -    XGBoost Test Precision: 0.0000
+2026-08-14 12:01:50 - training - INFO - [_evaluate_model:360] -    XGBoost Test Recall: 0.0000
+2026-08-14 12:01:50 - training - INFO - [train_clustering:193] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-14 12:01:50 - training - INFO - [train_clustering:227] -  K-Means training completed
+2026-08-14 12:01:50 - training - INFO - [train_clustering:228] -    Inertia: 1809.46
+2026-08-14 12:01:50 - training - INFO - [train_clustering:229] -    Silhouette Score: 0.1937
+2026-08-14 12:01:50 - training - INFO - [cross_validate_models:248] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-14 12:01:50 - training - INFO - [cross_validate_models:255] -    Cross-validating Random Forest...
+2026-08-14 12:01:51 - training - INFO - [cross_validate_models:265] -    RF CV F1: nan (+/- nan)
+2026-08-14 12:01:51 - training - INFO - [cross_validate_models:269] -    Cross-validating XGBoost...
+2026-08-14 12:01:51 - training - INFO - [cross_validate_models:279] -    XGB CV F1: nan (+/- nan)
+2026-08-14 12:01:51 - training - INFO - [cross_validate_models:281] - Cross-validation completed
+2026-08-14 12:01:51 - training - INFO - [print_summary:429] - ================================================================================
+2026-08-14 12:01:51 - training - INFO - [print_summary:430] - TRAINING SUMMARY
+2026-08-14 12:01:51 - training - INFO - [print_summary:431] - ================================================================================
+2026-08-14 12:01:51 - training - INFO - [print_summary:435] - 
+Random Forest:
+2026-08-14 12:01:51 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-14 12:01:51 - training - INFO - [print_summary:437] -   Test Precision: 0.0000
+2026-08-14 12:01:51 - training - INFO - [print_summary:438] -   Test Recall:    0.0000
+2026-08-14 12:01:51 - training - INFO - [print_summary:439] -   Test F1:        0.0000
+2026-08-14 12:01:51 - training - INFO - [print_summary:435] - 
+XGBoost:
+2026-08-14 12:01:51 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-14 12:01:51 - training - INFO - [print_summary:437] -   Test Precision: 0.0000
+2026-08-14 12:01:51 - training - INFO - [print_summary:438] -   Test Recall:    0.0000
+2026-08-14 12:01:51 - training - INFO - [print_summary:439] -   Test F1:        0.0000
+2026-08-14 12:01:51 - training - INFO - [print_summary:441] -   Test AUC-ROC:   nan
+2026-08-14 12:01:51 - training - INFO - [save_models:373] -  Saving trained models...
+2026-08-14 12:01:51 - training - INFO - [save_models:387] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260814_120151.joblib
+2026-08-14 12:01:51 - training - INFO - [save_models:387] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260814_120151.joblib
+2026-08-14 12:01:51 - training - INFO - [save_models:387] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260814_120151.joblib
+2026-08-14 12:01:51 - training - INFO - [save_models:397] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260814_120151.joblib
+2026-08-14 12:01:51 - training - INFO - [save_models:399] - Models saved successfully
+2026-08-14 12:06:14 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-14 12:06:14 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-14 12:06:14 - training - INFO - [prepare_data:70] -    Total samples: 194
+2026-08-14 12:06:14 - training - INFO - [prepare_data:71] -    Positive class: 97 (50.0%)
+2026-08-14 12:06:14 - training - INFO - [prepare_data:72] -    Negative class: 97 (50.0%)
+2026-08-14 12:06:14 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-14 12:06:14 - training - INFO - [prepare_data:83] -    Train set: 135 samples (69.6%)
+2026-08-14 12:06:14 - training - INFO - [prepare_data:84] -    Test set: 59 samples (30.4%)
+2026-08-14 12:06:14 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-14 12:06:14 - training - INFO - [_evaluate_model:357] -    Random Forest Test Accuracy: 1.0000
+2026-08-14 12:06:14 - training - INFO - [_evaluate_model:358] -    Random Forest Test F1: 1.0000
+2026-08-14 12:06:14 - training - INFO - [_evaluate_model:359] -    Random Forest Test Precision: 1.0000
+2026-08-14 12:06:14 - training - INFO - [_evaluate_model:360] -    Random Forest Test Recall: 1.0000
+2026-08-14 12:06:14 - training - INFO - [train_xgboost:142] - 🚀 Training XGBoost Classifier...
+2026-08-14 12:06:14 - training - INFO - [_evaluate_model:357] -    XGBoost Test Accuracy: 1.0000
+2026-08-14 12:06:14 - training - INFO - [_evaluate_model:358] -    XGBoost Test F1: 1.0000
+2026-08-14 12:06:14 - training - INFO - [_evaluate_model:359] -    XGBoost Test Precision: 1.0000
+2026-08-14 12:06:14 - training - INFO - [_evaluate_model:360] -    XGBoost Test Recall: 1.0000
+2026-08-14 12:06:14 - training - INFO - [train_clustering:193] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-14 12:06:15 - training - INFO - [train_clustering:227] -  K-Means training completed
+2026-08-14 12:06:15 - training - INFO - [train_clustering:228] -    Inertia: 2449.92
+2026-08-14 12:06:15 - training - INFO - [train_clustering:229] -    Silhouette Score: 0.1708
+2026-08-14 12:06:15 - training - INFO - [cross_validate_models:248] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-14 12:06:15 - training - INFO - [cross_validate_models:255] -    Cross-validating Random Forest...
+2026-08-14 12:06:15 - training - INFO - [cross_validate_models:265] -    RF CV F1: 0.9920 (+/- 0.0160)
+2026-08-14 12:06:15 - training - INFO - [cross_validate_models:269] -    Cross-validating XGBoost...
+2026-08-14 12:06:16 - training - INFO - [cross_validate_models:279] -    XGB CV F1: 1.0000 (+/- 0.0000)
+2026-08-14 12:06:16 - training - INFO - [cross_validate_models:281] - Cross-validation completed
+2026-08-14 12:06:16 - training - INFO - [print_summary:429] - ================================================================================
+2026-08-14 12:06:16 - training - INFO - [print_summary:430] - TRAINING SUMMARY
+2026-08-14 12:06:16 - training - INFO - [print_summary:431] - ================================================================================
+2026-08-14 12:06:16 - training - INFO - [print_summary:435] - 
+Random Forest:
+2026-08-14 12:06:16 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-14 12:06:16 - training - INFO - [print_summary:437] -   Test Precision: 1.0000
+2026-08-14 12:06:16 - training - INFO - [print_summary:438] -   Test Recall:    1.0000
+2026-08-14 12:06:16 - training - INFO - [print_summary:439] -   Test F1:        1.0000
+2026-08-14 12:06:16 - training - INFO - [print_summary:441] -   Test AUC-ROC:   1.0000
+2026-08-14 12:06:16 - training - INFO - [print_summary:435] - 
+XGBoost:
+2026-08-14 12:06:16 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-14 12:06:16 - training - INFO - [print_summary:437] -   Test Precision: 1.0000
+2026-08-14 12:06:16 - training - INFO - [print_summary:438] -   Test Recall:    1.0000
+2026-08-14 12:06:16 - training - INFO - [print_summary:439] -   Test F1:        1.0000
+2026-08-14 12:06:16 - training - INFO - [print_summary:441] -   Test AUC-ROC:   1.0000
+2026-08-14 12:06:16 - training - INFO - [save_models:373] -  Saving trained models...
+2026-08-14 12:06:16 - training - INFO - [save_models:387] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260814_120616.joblib
+2026-08-14 12:06:16 - training - INFO - [save_models:387] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260814_120616.joblib
+2026-08-14 12:06:16 - training - INFO - [save_models:387] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260814_120616.joblib
+2026-08-14 12:06:16 - training - INFO - [save_models:397] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260814_120616.joblib
+2026-08-14 12:06:16 - training - INFO - [save_models:399] - Models saved successfully
+2026-08-17 11:59:02 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-17 11:59:02 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-17 11:59:02 - training - INFO - [prepare_data:70] -    Total samples: 194
+2026-08-17 11:59:02 - training - INFO - [prepare_data:71] -    Positive class: 97 (50.0%)
+2026-08-17 11:59:02 - training - INFO - [prepare_data:72] -    Negative class: 97 (50.0%)
+2026-08-17 11:59:02 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-17 11:59:02 - training - INFO - [prepare_data:83] -    Train set: 135 samples (69.6%)
+2026-08-17 11:59:02 - training - INFO - [prepare_data:84] -    Test set: 59 samples (30.4%)
+2026-08-17 11:59:02 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-17 11:59:02 - training - INFO - [_evaluate_model:357] -    Random Forest Test Accuracy: 1.0000
+2026-08-17 11:59:02 - training - INFO - [_evaluate_model:358] -    Random Forest Test F1: 1.0000
+2026-08-17 11:59:02 - training - INFO - [_evaluate_model:359] -    Random Forest Test Precision: 1.0000
+2026-08-17 11:59:02 - training - INFO - [_evaluate_model:360] -    Random Forest Test Recall: 1.0000
+2026-08-17 11:59:02 - training - INFO - [train_xgboost:142] - 🚀 Training XGBoost Classifier...
+2026-08-17 11:59:03 - training - INFO - [_evaluate_model:357] -    XGBoost Test Accuracy: 1.0000
+2026-08-17 11:59:03 - training - INFO - [_evaluate_model:358] -    XGBoost Test F1: 1.0000
+2026-08-17 11:59:03 - training - INFO - [_evaluate_model:359] -    XGBoost Test Precision: 1.0000
+2026-08-17 11:59:03 - training - INFO - [_evaluate_model:360] -    XGBoost Test Recall: 1.0000
+2026-08-17 11:59:03 - training - INFO - [train_clustering:193] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-17 11:59:03 - training - INFO - [train_clustering:227] -  K-Means training completed
+2026-08-17 11:59:03 - training - INFO - [train_clustering:228] -    Inertia: 2449.92
+2026-08-17 11:59:03 - training - INFO - [train_clustering:229] -    Silhouette Score: 0.1708
+2026-08-17 11:59:03 - training - INFO - [cross_validate_models:248] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-17 11:59:03 - training - INFO - [cross_validate_models:255] -    Cross-validating Random Forest...
+2026-08-17 11:59:03 - training - INFO - [cross_validate_models:265] -    RF CV F1: 0.9920 (+/- 0.0160)
+2026-08-17 11:59:03 - training - INFO - [cross_validate_models:269] -    Cross-validating XGBoost...
+2026-08-17 11:59:04 - training - INFO - [cross_validate_models:279] -    XGB CV F1: 1.0000 (+/- 0.0000)
+2026-08-17 11:59:04 - training - INFO - [cross_validate_models:281] - Cross-validation completed
+2026-08-17 11:59:04 - training - INFO - [print_summary:429] - ================================================================================
+2026-08-17 11:59:04 - training - INFO - [print_summary:430] - TRAINING SUMMARY
+2026-08-17 11:59:04 - training - INFO - [print_summary:431] - ================================================================================
+2026-08-17 11:59:04 - training - INFO - [print_summary:435] - 
+Random Forest:
+2026-08-17 11:59:04 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-17 11:59:04 - training - INFO - [print_summary:437] -   Test Precision: 1.0000
+2026-08-17 11:59:04 - training - INFO - [print_summary:438] -   Test Recall:    1.0000
+2026-08-17 11:59:04 - training - INFO - [print_summary:439] -   Test F1:        1.0000
+2026-08-17 11:59:04 - training - INFO - [print_summary:441] -   Test AUC-ROC:   1.0000
+2026-08-17 11:59:04 - training - INFO - [print_summary:435] - 
+XGBoost:
+2026-08-17 11:59:04 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-17 11:59:04 - training - INFO - [print_summary:437] -   Test Precision: 1.0000
+2026-08-17 11:59:04 - training - INFO - [print_summary:438] -   Test Recall:    1.0000
+2026-08-17 11:59:04 - training - INFO - [print_summary:439] -   Test F1:        1.0000
+2026-08-17 11:59:04 - training - INFO - [print_summary:441] -   Test AUC-ROC:   1.0000
+2026-08-17 11:59:04 - training - INFO - [save_models:373] -  Saving trained models...
+2026-08-17 11:59:04 - training - INFO - [save_models:387] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260817_115904.joblib
+2026-08-17 11:59:04 - training - INFO - [save_models:387] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260817_115904.joblib
+2026-08-17 11:59:04 - training - INFO - [save_models:387] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260817_115904.joblib
+2026-08-17 11:59:04 - training - INFO - [save_models:397] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260817_115904.joblib
+2026-08-17 11:59:04 - training - INFO - [save_models:399] - Models saved successfully
+2026-08-17 12:42:52 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-17 12:42:52 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-17 12:42:52 - training - INFO - [prepare_data:70] -    Total samples: 194
+2026-08-17 12:42:52 - training - INFO - [prepare_data:71] -    Positive class: 97 (50.0%)
+2026-08-17 12:42:52 - training - INFO - [prepare_data:72] -    Negative class: 97 (50.0%)
+2026-08-17 12:42:52 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-17 12:42:52 - training - INFO - [prepare_data:83] -    Train set: 135 samples (69.6%)
+2026-08-17 12:42:52 - training - INFO - [prepare_data:84] -    Test set: 59 samples (30.4%)
+2026-08-17 12:42:52 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-17 12:42:53 - training - INFO - [_evaluate_model:357] -    Random Forest Test Accuracy: 1.0000
+2026-08-17 12:42:53 - training - INFO - [_evaluate_model:358] -    Random Forest Test F1: 1.0000
+2026-08-17 12:42:53 - training - INFO - [_evaluate_model:359] -    Random Forest Test Precision: 1.0000
+2026-08-17 12:42:53 - training - INFO - [_evaluate_model:360] -    Random Forest Test Recall: 1.0000
+2026-08-17 12:42:53 - training - INFO - [train_xgboost:142] - 🚀 Training XGBoost Classifier...
+2026-08-17 12:42:53 - training - INFO - [_evaluate_model:357] -    XGBoost Test Accuracy: 1.0000
+2026-08-17 12:42:53 - training - INFO - [_evaluate_model:358] -    XGBoost Test F1: 1.0000
+2026-08-17 12:42:53 - training - INFO - [_evaluate_model:359] -    XGBoost Test Precision: 1.0000
+2026-08-17 12:42:53 - training - INFO - [_evaluate_model:360] -    XGBoost Test Recall: 1.0000
+2026-08-17 12:42:53 - training - INFO - [train_clustering:193] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-17 12:42:53 - training - INFO - [train_clustering:227] -  K-Means training completed
+2026-08-17 12:42:53 - training - INFO - [train_clustering:228] -    Inertia: 2449.92
+2026-08-17 12:42:53 - training - INFO - [train_clustering:229] -    Silhouette Score: 0.1708
+2026-08-17 12:42:53 - training - INFO - [cross_validate_models:248] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-17 12:42:53 - training - INFO - [cross_validate_models:255] -    Cross-validating Random Forest...
+2026-08-17 12:42:54 - training - INFO - [cross_validate_models:265] -    RF CV F1: 0.9920 (+/- 0.0160)
+2026-08-17 12:42:54 - training - INFO - [cross_validate_models:269] -    Cross-validating XGBoost...
+2026-08-17 12:42:54 - training - INFO - [cross_validate_models:279] -    XGB CV F1: 1.0000 (+/- 0.0000)
+2026-08-17 12:42:54 - training - INFO - [cross_validate_models:281] - Cross-validation completed
+2026-08-17 12:42:54 - training - INFO - [print_summary:429] - ================================================================================
+2026-08-17 12:42:54 - training - INFO - [print_summary:430] - TRAINING SUMMARY
+2026-08-17 12:42:54 - training - INFO - [print_summary:431] - ================================================================================
+2026-08-17 12:42:54 - training - INFO - [print_summary:435] - 
+Random Forest:
+2026-08-17 12:42:54 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-17 12:42:54 - training - INFO - [print_summary:437] -   Test Precision: 1.0000
+2026-08-17 12:42:54 - training - INFO - [print_summary:438] -   Test Recall:    1.0000
+2026-08-17 12:42:54 - training - INFO - [print_summary:439] -   Test F1:        1.0000
+2026-08-17 12:42:54 - training - INFO - [print_summary:441] -   Test AUC-ROC:   1.0000
+2026-08-17 12:42:54 - training - INFO - [print_summary:435] - 
+XGBoost:
+2026-08-17 12:42:54 - training - INFO - [print_summary:436] -   Test Accuracy:  1.0000
+2026-08-17 12:42:54 - training - INFO - [print_summary:437] -   Test Precision: 1.0000
+2026-08-17 12:42:54 - training - INFO - [print_summary:438] -   Test Recall:    1.0000
+2026-08-17 12:42:54 - training - INFO - [print_summary:439] -   Test F1:        1.0000
+2026-08-17 12:42:54 - training - INFO - [print_summary:441] -   Test AUC-ROC:   1.0000
+2026-08-17 12:42:54 - training - INFO - [save_models:373] -  Saving trained models...
+2026-08-17 12:42:54 - training - INFO - [save_models:387] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260817_124254.joblib
+2026-08-17 12:42:54 - training - INFO - [save_models:387] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260817_124254.joblib
+2026-08-17 12:42:54 - training - INFO - [save_models:387] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260817_124254.joblib
+2026-08-17 12:42:54 - training - INFO - [save_models:397] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260817_124254.joblib
+2026-08-17 12:42:54 - training - INFO - [save_models:399] - Models saved successfully
+2026-08-19 11:16:39 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-19 11:16:39 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-19 11:16:39 - training - INFO - [prepare_data:70] -    Total samples: 198
+2026-08-19 11:16:39 - training - INFO - [prepare_data:71] -    Positive class: 99 (50.0%)
+2026-08-19 11:16:39 - training - INFO - [prepare_data:72] -    Negative class: 99 (50.0%)
+2026-08-19 11:16:39 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-19 11:16:39 - training - INFO - [prepare_data:83] -    Train set: 138 samples (69.7%)
+2026-08-19 11:16:39 - training - INFO - [prepare_data:84] -    Test set: 60 samples (30.3%)
+2026-08-19 11:16:39 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-19 11:16:39 - training - INFO - [_evaluate_model:360] -    Random Forest Test Accuracy: 1.0000
+2026-08-19 11:16:39 - training - INFO - [_evaluate_model:361] -    Random Forest Test F1: 1.0000
+2026-08-19 11:16:39 - training - INFO - [_evaluate_model:362] -    Random Forest Test Precision: 1.0000
+2026-08-19 11:16:39 - training - INFO - [_evaluate_model:363] -    Random Forest Test Recall: 1.0000
+2026-08-19 11:16:39 - training - INFO - [train_xgboost:144] - 🚀 Training XGBoost Classifier...
+2026-08-19 11:16:39 - training - INFO - [_evaluate_model:360] -    XGBoost Test Accuracy: 1.0000
+2026-08-19 11:16:39 - training - INFO - [_evaluate_model:361] -    XGBoost Test F1: 1.0000
+2026-08-19 11:16:39 - training - INFO - [_evaluate_model:362] -    XGBoost Test Precision: 1.0000
+2026-08-19 11:16:39 - training - INFO - [_evaluate_model:363] -    XGBoost Test Recall: 1.0000
+2026-08-19 11:16:39 - training - INFO - [train_clustering:196] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-19 11:16:39 - training - INFO - [train_clustering:230] -  K-Means training completed
+2026-08-19 11:16:39 - training - INFO - [train_clustering:231] -    Inertia: 2609.16
+2026-08-19 11:16:39 - training - INFO - [train_clustering:232] -    Silhouette Score: 0.1265
+2026-08-19 11:16:39 - training - INFO - [cross_validate_models:251] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-19 11:16:39 - training - INFO - [cross_validate_models:258] -    Cross-validating Random Forest...
+2026-08-19 11:16:39 - training - INFO - [cross_validate_models:268] -    RF CV F1: 0.9931 (+/- 0.0138)
+2026-08-19 11:16:39 - training - INFO - [cross_validate_models:272] -    Cross-validating XGBoost...
+2026-08-19 11:16:40 - training - INFO - [cross_validate_models:282] -    XGB CV F1: 1.0000 (+/- 0.0000)
+2026-08-19 11:16:40 - training - INFO - [cross_validate_models:284] - Cross-validation completed
+2026-08-19 11:16:40 - training - INFO - [print_summary:432] - ================================================================================
+2026-08-19 11:16:40 - training - INFO - [print_summary:433] - TRAINING SUMMARY
+2026-08-19 11:16:40 - training - INFO - [print_summary:434] - ================================================================================
+2026-08-19 11:16:40 - training - INFO - [print_summary:438] - 
+Random Forest:
+2026-08-19 11:16:40 - training - INFO - [print_summary:439] -   Test Accuracy:  1.0000
+2026-08-19 11:16:40 - training - INFO - [print_summary:440] -   Test Precision: 1.0000
+2026-08-19 11:16:40 - training - INFO - [print_summary:441] -   Test Recall:    1.0000
+2026-08-19 11:16:40 - training - INFO - [print_summary:442] -   Test F1:        1.0000
+2026-08-19 11:16:40 - training - INFO - [print_summary:444] -   Test AUC-ROC:   1.0000
+2026-08-19 11:16:40 - training - INFO - [print_summary:438] - 
+XGBoost:
+2026-08-19 11:16:40 - training - INFO - [print_summary:439] -   Test Accuracy:  1.0000
+2026-08-19 11:16:40 - training - INFO - [print_summary:440] -   Test Precision: 1.0000
+2026-08-19 11:16:40 - training - INFO - [print_summary:441] -   Test Recall:    1.0000
+2026-08-19 11:16:40 - training - INFO - [print_summary:442] -   Test F1:        1.0000
+2026-08-19 11:16:40 - training - INFO - [print_summary:444] -   Test AUC-ROC:   1.0000
+2026-08-19 11:16:40 - training - INFO - [save_models:376] -  Saving trained models...
+2026-08-19 11:16:40 - training - INFO - [save_models:390] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260819_111640.joblib
+2026-08-19 11:16:40 - training - INFO - [save_models:390] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260819_111640.joblib
+2026-08-19 11:16:40 - training - INFO - [save_models:390] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260819_111640.joblib
+2026-08-19 11:16:40 - training - INFO - [save_models:400] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260819_111640.joblib
+2026-08-19 11:16:40 - training - INFO - [save_models:402] - Models saved successfully
+2026-08-19 11:17:41 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-19 11:17:41 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-19 11:17:41 - training - INFO - [prepare_data:70] -    Total samples: 198
+2026-08-19 11:17:41 - training - INFO - [prepare_data:71] -    Positive class: 99 (50.0%)
+2026-08-19 11:17:41 - training - INFO - [prepare_data:72] -    Negative class: 99 (50.0%)
+2026-08-19 11:17:41 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-19 11:17:41 - training - INFO - [prepare_data:83] -    Train set: 138 samples (69.7%)
+2026-08-19 11:17:41 - training - INFO - [prepare_data:84] -    Test set: 60 samples (30.3%)
+2026-08-19 11:17:41 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-19 11:17:41 - training - INFO - [_evaluate_model:360] -    Random Forest Test Accuracy: 0.8833
+2026-08-19 11:17:41 - training - INFO - [_evaluate_model:361] -    Random Forest Test F1: 0.8889
+2026-08-19 11:17:41 - training - INFO - [_evaluate_model:362] -    Random Forest Test Precision: 0.8485
+2026-08-19 11:17:41 - training - INFO - [_evaluate_model:363] -    Random Forest Test Recall: 0.9333
+2026-08-19 11:17:41 - training - INFO - [train_xgboost:144] - 🚀 Training XGBoost Classifier...
+2026-08-19 11:17:41 - training - INFO - [_evaluate_model:360] -    XGBoost Test Accuracy: 1.0000
+2026-08-19 11:17:41 - training - INFO - [_evaluate_model:361] -    XGBoost Test F1: 1.0000
+2026-08-19 11:17:41 - training - INFO - [_evaluate_model:362] -    XGBoost Test Precision: 1.0000
+2026-08-19 11:17:41 - training - INFO - [_evaluate_model:363] -    XGBoost Test Recall: 1.0000
+2026-08-19 11:17:41 - training - INFO - [train_clustering:196] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-19 11:17:41 - training - INFO - [train_clustering:230] -  K-Means training completed
+2026-08-19 11:17:41 - training - INFO - [train_clustering:231] -    Inertia: 2609.16
+2026-08-19 11:17:41 - training - INFO - [train_clustering:232] -    Silhouette Score: 0.1265
+2026-08-19 11:17:41 - training - INFO - [cross_validate_models:251] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-19 11:17:41 - training - INFO - [cross_validate_models:258] -    Cross-validating Random Forest...
+2026-08-19 11:17:42 - training - INFO - [cross_validate_models:268] -    RF CV F1: 0.8915 (+/- 0.0567)
+2026-08-19 11:17:42 - training - INFO - [cross_validate_models:272] -    Cross-validating XGBoost...
+2026-08-19 11:17:42 - training - INFO - [cross_validate_models:282] -    XGB CV F1: 1.0000 (+/- 0.0000)
+2026-08-19 11:17:42 - training - INFO - [cross_validate_models:284] - Cross-validation completed
+2026-08-19 11:17:42 - training - INFO - [print_summary:432] - ================================================================================
+2026-08-19 11:17:42 - training - INFO - [print_summary:433] - TRAINING SUMMARY
+2026-08-19 11:17:42 - training - INFO - [print_summary:434] - ================================================================================
+2026-08-19 11:17:42 - training - INFO - [print_summary:438] - 
+Random Forest:
+2026-08-19 11:17:42 - training - INFO - [print_summary:439] -   Test Accuracy:  0.8833
+2026-08-19 11:17:42 - training - INFO - [print_summary:440] -   Test Precision: 0.8485
+2026-08-19 11:17:42 - training - INFO - [print_summary:441] -   Test Recall:    0.9333
+2026-08-19 11:17:42 - training - INFO - [print_summary:442] -   Test F1:        0.8889
+2026-08-19 11:17:42 - training - INFO - [print_summary:444] -   Test AUC-ROC:   0.9733
+2026-08-19 11:17:42 - training - INFO - [print_summary:438] - 
+XGBoost:
+2026-08-19 11:17:42 - training - INFO - [print_summary:439] -   Test Accuracy:  1.0000
+2026-08-19 11:17:42 - training - INFO - [print_summary:440] -   Test Precision: 1.0000
+2026-08-19 11:17:42 - training - INFO - [print_summary:441] -   Test Recall:    1.0000
+2026-08-19 11:17:42 - training - INFO - [print_summary:442] -   Test F1:        1.0000
+2026-08-19 11:17:42 - training - INFO - [print_summary:444] -   Test AUC-ROC:   1.0000
+2026-08-19 11:17:42 - training - INFO - [save_models:376] -  Saving trained models...
+2026-08-19 11:17:42 - training - INFO - [save_models:390] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260819_111742.joblib
+2026-08-19 11:17:42 - training - INFO - [save_models:390] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260819_111742.joblib
+2026-08-19 11:17:42 - training - INFO - [save_models:390] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260819_111742.joblib
+2026-08-19 11:17:42 - training - INFO - [save_models:400] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260819_111742.joblib
+2026-08-19 11:17:42 - training - INFO - [save_models:402] - Models saved successfully
+2026-08-19 12:03:07 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-19 12:03:07 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-19 12:03:07 - training - INFO - [prepare_data:70] -    Total samples: 870
+2026-08-19 12:03:07 - training - INFO - [prepare_data:71] -    Positive class: 435 (50.0%)
+2026-08-19 12:03:07 - training - INFO - [prepare_data:72] -    Negative class: 435 (50.0%)
+2026-08-19 12:03:07 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-19 12:03:07 - training - INFO - [prepare_data:83] -    Train set: 609 samples (70.0%)
+2026-08-19 12:03:07 - training - INFO - [prepare_data:84] -    Test set: 261 samples (30.0%)
+2026-08-19 12:03:07 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-19 12:03:07 - training - INFO - [_evaluate_model:360] -    Random Forest Test Accuracy: 0.9617
+2026-08-19 12:03:07 - training - INFO - [_evaluate_model:361] -    Random Forest Test F1: 0.9603
+2026-08-19 12:03:07 - training - INFO - [_evaluate_model:362] -    Random Forest Test Precision: 0.9918
+2026-08-19 12:03:07 - training - INFO - [_evaluate_model:363] -    Random Forest Test Recall: 0.9308
+2026-08-19 12:03:07 - training - INFO - [train_xgboost:144] - 🚀 Training XGBoost Classifier...
+2026-08-19 12:03:07 - training - INFO - [_evaluate_model:360] -    XGBoost Test Accuracy: 1.0000
+2026-08-19 12:03:07 - training - INFO - [_evaluate_model:361] -    XGBoost Test F1: 1.0000
+2026-08-19 12:03:07 - training - INFO - [_evaluate_model:362] -    XGBoost Test Precision: 1.0000
+2026-08-19 12:03:07 - training - INFO - [_evaluate_model:363] -    XGBoost Test Recall: 1.0000
+2026-08-19 12:03:07 - training - INFO - [train_clustering:196] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-19 12:03:07 - training - INFO - [train_clustering:230] -  K-Means training completed
+2026-08-19 12:03:07 - training - INFO - [train_clustering:231] -    Inertia: 8393.06
+2026-08-19 12:03:07 - training - INFO - [train_clustering:232] -    Silhouette Score: 0.1664
+2026-08-19 12:03:07 - training - INFO - [cross_validate_models:251] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-19 12:03:07 - training - INFO - [cross_validate_models:258] -    Cross-validating Random Forest...
+2026-08-19 12:03:07 - training - INFO - [cross_validate_models:268] -    RF CV F1: 0.9263 (+/- 0.0345)
+2026-08-19 12:03:07 - training - INFO - [cross_validate_models:272] -    Cross-validating XGBoost...
+2026-08-19 12:03:07 - training - INFO - [cross_validate_models:282] -    XGB CV F1: 1.0000 (+/- 0.0000)
+2026-08-19 12:03:07 - training - INFO - [cross_validate_models:284] - Cross-validation completed
+2026-08-19 12:03:07 - training - INFO - [print_summary:432] - ================================================================================
+2026-08-19 12:03:07 - training - INFO - [print_summary:433] - TRAINING SUMMARY
+2026-08-19 12:03:07 - training - INFO - [print_summary:434] - ================================================================================
+2026-08-19 12:03:07 - training - INFO - [print_summary:438] - 
+Random Forest:
+2026-08-19 12:03:07 - training - INFO - [print_summary:439] -   Test Accuracy:  0.9617
+2026-08-19 12:03:07 - training - INFO - [print_summary:440] -   Test Precision: 0.9918
+2026-08-19 12:03:07 - training - INFO - [print_summary:441] -   Test Recall:    0.9308
+2026-08-19 12:03:07 - training - INFO - [print_summary:442] -   Test F1:        0.9603
+2026-08-19 12:03:07 - training - INFO - [print_summary:444] -   Test AUC-ROC:   0.9959
+2026-08-19 12:03:07 - training - INFO - [print_summary:438] - 
+XGBoost:
+2026-08-19 12:03:07 - training - INFO - [print_summary:439] -   Test Accuracy:  1.0000
+2026-08-19 12:03:07 - training - INFO - [print_summary:440] -   Test Precision: 1.0000
+2026-08-19 12:03:07 - training - INFO - [print_summary:441] -   Test Recall:    1.0000
+2026-08-19 12:03:07 - training - INFO - [print_summary:442] -   Test F1:        1.0000
+2026-08-19 12:03:07 - training - INFO - [print_summary:444] -   Test AUC-ROC:   1.0000
+2026-08-19 12:03:07 - training - INFO - [save_models:376] -  Saving trained models...
+2026-08-19 12:03:08 - training - INFO - [save_models:390] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260819_120307.joblib
+2026-08-19 12:03:08 - training - INFO - [save_models:390] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260819_120308.joblib
+2026-08-19 12:03:08 - training - INFO - [save_models:390] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260819_120308.joblib
+2026-08-19 12:03:08 - training - INFO - [save_models:400] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260819_120308.joblib
+2026-08-19 12:03:08 - training - INFO - [save_models:402] - Models saved successfully
+2026-08-20 11:32:22 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-20 11:32:22 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-20 11:32:22 - training - INFO - [prepare_data:70] -    Total samples: 870
+2026-08-20 11:32:22 - training - INFO - [prepare_data:71] -    Positive class: 435 (50.0%)
+2026-08-20 11:32:22 - training - INFO - [prepare_data:72] -    Negative class: 435 (50.0%)
+2026-08-20 11:32:22 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-20 11:32:22 - training - INFO - [prepare_data:83] -    Train set: 609 samples (70.0%)
+2026-08-20 11:32:22 - training - INFO - [prepare_data:84] -    Test set: 261 samples (30.0%)
+2026-08-20 11:32:22 - training - INFO - [train_random_forest:95] -  Training Random Forest Classifier...
+2026-08-20 11:32:22 - training - INFO - [_evaluate_model:360] -    Random Forest Test Accuracy: 0.8161
+2026-08-20 11:32:22 - training - INFO - [_evaluate_model:361] -    Random Forest Test F1: 0.8222
+2026-08-20 11:32:22 - training - INFO - [_evaluate_model:362] -    Random Forest Test Precision: 0.7929
+2026-08-20 11:32:22 - training - INFO - [_evaluate_model:363] -    Random Forest Test Recall: 0.8538
+2026-08-20 11:32:22 - training - INFO - [train_xgboost:144] - 🚀 Training XGBoost Classifier...
+2026-08-20 11:32:22 - training - INFO - [_evaluate_model:360] -    XGBoost Test Accuracy: 0.8314
+2026-08-20 11:32:22 - training - INFO - [_evaluate_model:361] -    XGBoost Test F1: 0.8358
+2026-08-20 11:32:22 - training - INFO - [_evaluate_model:362] -    XGBoost Test Precision: 0.8116
+2026-08-20 11:32:22 - training - INFO - [_evaluate_model:363] -    XGBoost Test Recall: 0.8615
+2026-08-20 11:32:22 - training - INFO - [train_clustering:196] - 🔍 Training K-Means Clustering (k=4)...
+2026-08-20 11:32:22 - training - INFO - [train_clustering:230] -  K-Means training completed
+2026-08-20 11:32:22 - training - INFO - [train_clustering:231] -    Inertia: 7976.57
+2026-08-20 11:32:22 - training - INFO - [train_clustering:232] -    Silhouette Score: 0.1741
+2026-08-20 11:32:22 - training - INFO - [cross_validate_models:251] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-20 11:32:22 - training - INFO - [cross_validate_models:258] -    Cross-validating Random Forest...
+2026-08-20 11:32:22 - training - INFO - [cross_validate_models:268] -    RF CV F1: 0.8370 (+/- 0.0371)
+2026-08-20 11:32:22 - training - INFO - [cross_validate_models:272] -    Cross-validating XGBoost...
+2026-08-20 11:32:23 - training - INFO - [cross_validate_models:282] -    XGB CV F1: 0.8504 (+/- 0.0300)
+2026-08-20 11:32:23 - training - INFO - [cross_validate_models:284] - Cross-validation completed
+2026-08-20 11:32:23 - training - INFO - [print_summary:432] - ================================================================================
+2026-08-20 11:32:23 - training - INFO - [print_summary:433] - TRAINING SUMMARY
+2026-08-20 11:32:23 - training - INFO - [print_summary:434] - ================================================================================
+2026-08-20 11:32:23 - training - INFO - [print_summary:438] - 
+Random Forest:
+2026-08-20 11:32:23 - training - INFO - [print_summary:439] -   Test Accuracy:  0.8161
+2026-08-20 11:32:23 - training - INFO - [print_summary:440] -   Test Precision: 0.7929
+2026-08-20 11:32:23 - training - INFO - [print_summary:441] -   Test Recall:    0.8538
+2026-08-20 11:32:23 - training - INFO - [print_summary:442] -   Test F1:        0.8222
+2026-08-20 11:32:23 - training - INFO - [print_summary:444] -   Test AUC-ROC:   0.8918
+2026-08-20 11:32:23 - training - INFO - [print_summary:438] - 
+XGBoost:
+2026-08-20 11:32:23 - training - INFO - [print_summary:439] -   Test Accuracy:  0.8314
+2026-08-20 11:32:23 - training - INFO - [print_summary:440] -   Test Precision: 0.8116
+2026-08-20 11:32:23 - training - INFO - [print_summary:441] -   Test Recall:    0.8615
+2026-08-20 11:32:23 - training - INFO - [print_summary:442] -   Test F1:        0.8358
+2026-08-20 11:32:23 - training - INFO - [print_summary:444] -   Test AUC-ROC:   0.9103
+2026-08-20 11:32:23 - training - INFO - [save_models:376] -  Saving trained models...
+2026-08-20 11:32:23 - training - INFO - [save_models:390] -     Saved random_forest to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/random_forest_v20260820_113223.joblib
+2026-08-20 11:32:23 - training - INFO - [save_models:390] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260820_113223.joblib
+2026-08-20 11:32:23 - training - INFO - [save_models:390] -     Saved kmeans to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/kmeans_v20260820_113223.joblib
+2026-08-20 11:32:23 - training - INFO - [save_models:400] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260820_113223.joblib
+2026-08-20 11:32:23 - training - INFO - [save_models:402] - Models saved successfully
+2026-08-20 13:05:43 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-20 13:05:43 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-20 13:05:43 - training - INFO - [prepare_data:70] -    Total samples: 872
+2026-08-20 13:05:43 - training - INFO - [prepare_data:71] -    Positive class: 436 (50.0%)
+2026-08-20 13:05:43 - training - INFO - [prepare_data:72] -    Negative class: 436 (50.0%)
+2026-08-20 13:05:43 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-20 13:05:43 - training - INFO - [prepare_data:83] -    Train set: 610 samples (70.0%)
+2026-08-20 13:05:43 - training - INFO - [prepare_data:84] -    Test set: 262 samples (30.0%)
+2026-08-20 13:05:43 - training - INFO - [train_xgboost:144] - 🚀 Training XGBoost Classifier...
+2026-08-20 13:05:43 - training - INFO - [_evaluate_model:360] -    XGBoost Test Accuracy: 0.8359
+2026-08-20 13:05:43 - training - INFO - [_evaluate_model:361] -    XGBoost Test F1: 0.8390
+2026-08-20 13:05:43 - training - INFO - [_evaluate_model:362] -    XGBoost Test Precision: 0.8235
+2026-08-20 13:05:43 - training - INFO - [_evaluate_model:363] -    XGBoost Test Recall: 0.8550
+2026-08-20 13:05:43 - training - INFO - [cross_validate_models:251] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-20 13:05:43 - training - INFO - [cross_validate_models:272] -    Cross-validating XGBoost...
+2026-08-20 13:05:43 - training - INFO - [cross_validate_models:282] -    XGB CV F1: 0.8566 (+/- 0.0109)
+2026-08-20 13:05:43 - training - INFO - [cross_validate_models:284] - Cross-validation completed
+2026-08-20 13:05:43 - training - INFO - [print_summary:432] - ================================================================================
+2026-08-20 13:05:43 - training - INFO - [print_summary:433] - TRAINING SUMMARY
+2026-08-20 13:05:43 - training - INFO - [print_summary:434] - ================================================================================
+2026-08-20 13:05:43 - training - INFO - [print_summary:438] - 
+XGBoost:
+2026-08-20 13:05:43 - training - INFO - [print_summary:439] -   Test Accuracy:  0.8359
+2026-08-20 13:05:43 - training - INFO - [print_summary:440] -   Test Precision: 0.8235
+2026-08-20 13:05:43 - training - INFO - [print_summary:441] -   Test Recall:    0.8550
+2026-08-20 13:05:43 - training - INFO - [print_summary:442] -   Test F1:        0.8390
+2026-08-20 13:05:43 - training - INFO - [print_summary:444] -   Test AUC-ROC:   0.9046
+2026-08-20 13:05:43 - training - INFO - [save_models:376] -  Saving trained models...
+2026-08-20 13:05:43 - training - INFO - [save_models:390] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260820_130543.joblib
+2026-08-20 13:05:43 - training - INFO - [save_models:400] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260820_130543.joblib
+2026-08-20 13:05:43 - training - INFO - [save_models:402] - Models saved successfully
+2026-08-20 13:40:07 - training - INFO - [__init__:59] -  ModelTrainer initialized with random_state=42
+2026-08-20 13:40:07 - training - INFO - [prepare_data:69] - 📊 Preparing data for training...
+2026-08-20 13:40:07 - training - INFO - [prepare_data:70] -    Total samples: 872
+2026-08-20 13:40:07 - training - INFO - [prepare_data:71] -    Positive class: 436 (50.0%)
+2026-08-20 13:40:07 - training - INFO - [prepare_data:72] -    Negative class: 436 (50.0%)
+2026-08-20 13:40:07 - training - INFO - [prepare_data:82] - Train/Test split completed
+2026-08-20 13:40:07 - training - INFO - [prepare_data:83] -    Train set: 610 samples (70.0%)
+2026-08-20 13:40:07 - training - INFO - [prepare_data:84] -    Test set: 262 samples (30.0%)
+2026-08-20 13:40:07 - training - INFO - [train_xgboost:144] - 🚀 Training XGBoost Classifier...
+2026-08-20 13:40:07 - training - INFO - [_evaluate_model:360] -    XGBoost Test Accuracy: 0.8359
+2026-08-20 13:40:07 - training - INFO - [_evaluate_model:361] -    XGBoost Test F1: 0.8390
+2026-08-20 13:40:07 - training - INFO - [_evaluate_model:362] -    XGBoost Test Precision: 0.8235
+2026-08-20 13:40:07 - training - INFO - [_evaluate_model:363] -    XGBoost Test Recall: 0.8550
+2026-08-20 13:40:07 - training - INFO - [cross_validate_models:251] - 🔄 Performing 5-Fold Cross-Validation...
+2026-08-20 13:40:07 - training - INFO - [cross_validate_models:272] -    Cross-validating XGBoost...
+2026-08-20 13:40:07 - training - INFO - [cross_validate_models:282] -    XGB CV F1: 0.8512 (+/- 0.0150)
+2026-08-20 13:40:07 - training - INFO - [cross_validate_models:284] - Cross-validation completed
+2026-08-20 13:40:07 - training - INFO - [print_summary:432] - ================================================================================
+2026-08-20 13:40:07 - training - INFO - [print_summary:433] - TRAINING SUMMARY
+2026-08-20 13:40:07 - training - INFO - [print_summary:434] - ================================================================================
+2026-08-20 13:40:07 - training - INFO - [print_summary:438] - 
+XGBoost:
+2026-08-20 13:40:07 - training - INFO - [print_summary:439] -   Test Accuracy:  0.8359
+2026-08-20 13:40:07 - training - INFO - [print_summary:440] -   Test Precision: 0.8235
+2026-08-20 13:40:07 - training - INFO - [print_summary:441] -   Test Recall:    0.8550
+2026-08-20 13:40:07 - training - INFO - [print_summary:442] -   Test F1:        0.8390
+2026-08-20 13:40:07 - training - INFO - [print_summary:444] -   Test AUC-ROC:   0.9011
+2026-08-20 13:40:07 - training - INFO - [save_models:376] -  Saving trained models...
+2026-08-20 13:40:07 - training - INFO - [save_models:390] -     Saved xgboost to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/xgboost_v20260820_134007.joblib
+2026-08-20 13:40:07 - training - INFO - [save_models:400] -    Saved results to /Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_20260820_134007.joblib
+2026-08-20 13:40:07 - training - INFO - [save_models:402] - Models saved successfully

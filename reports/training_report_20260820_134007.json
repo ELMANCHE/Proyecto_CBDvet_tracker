@@ -1,0 +1,147 @@
+{
+  "timestamp": "2026-08-20T13:40:07.684189",
+  "train_samples": 610,
+  "test_samples": 262,
+  "models_trained": [
+    "xgboost"
+  ],
+  "results": {
+    "xgboost": {
+      "model_name": "XGBoost",
+      "timestamp": "2026-08-20T13:40:07.243442",
+      "train_accuracy": 0.8688524590163934,
+      "train_precision": 0.8548895899053628,
+      "train_recall": 0.8885245901639345,
+      "train_f1": 0.8713826366559485,
+      "train_auc": 0.9571083042192959,
+      "test_accuracy": 0.8358778625954199,
+      "test_precision": 0.8235294117647058,
+      "test_recall": 0.8549618320610687,
+      "test_f1": 0.8389513108614233,
+      "test_auc": 0.9010547170910785,
+      "confusion_matrix": [
+        [
+          107,
+          24
+        ],
+        [
+          19,
+          112
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.8492063492063492,
+          "recall": 0.816793893129771,
+          "f1-score": 0.8326848249027238,
+          "support": 131.0
+        },
+        "1": {
+          "precision": 0.8235294117647058,
+          "recall": 0.8549618320610687,
+          "f1-score": 0.8389513108614233,
+          "support": 131.0
+        },
+        "accuracy": 0.8358778625954199,
+        "macro avg": {
+          "precision": 0.8363678804855275,
+          "recall": 0.8358778625954199,
+          "f1-score": 0.8358180678820735,
+          "support": 262.0
+        },
+        "weighted avg": {
+          "precision": 0.8363678804855276,
+          "recall": 0.8358778625954199,
+          "f1-score": 0.8358180678820736,
+          "support": 262.0
+        }
+      },
+      "feature_importance": [
+        0.12217934429645538,
+        0.01676304079592228,
+        0.017017308622598648,
+        0.01825428009033203,
+        0.021404124796390533,
+        0.06598500162363052,
+        0.0163254551589489,
+        0.13787266612052917,
+        0.012107966467738152,
+        0.02073643170297146,
+        0.020536446943879128,
+        0.01108200941234827,
+        0.02344287373125553,
+        0.018019651994109154,
+        0.02531338855624199,
+        0.02473055012524128,
+        0.031576093286275864,
+        0.037320323288440704,
+        0.0742422491312027,
+        0.026085184887051582,
+        0.01802356354892254,
+        0.01734427735209465,
+        0.011567383073270321,
+        0.04090440645813942,
+        0.020100479945540428,
+        0.013292409479618073,
+        0.08952773362398148,
+        0.0,
+        0.04824540764093399
+      ]
+    },
+    "feature_names": [
+      "consulta_id",
+      "peso",
+      "nivel_estres",
+      "alt",
+      "ast",
+      "dosis_mg_kg",
+      "peso_kg",
+      "consulta_id_scaled",
+      "peso_scaled",
+      "nivel_estres_scaled",
+      "alt_scaled",
+      "ast_scaled",
+      "dosis_mg_kg_scaled",
+      "peso_kg_scaled",
+      "mes",
+      "dia_semana",
+      "es_fin_semana",
+      "grupo_peso_num",
+      "codigo_paciente_encoded",
+      "especie_encoded",
+      "raza_encoded",
+      "sexo_encoded",
+      "enfermedad_encoded",
+      "severidad_encoded",
+      "actividad_fisica_encoded",
+      "apetito_encoded",
+      "frecuencia_encoded",
+      "tipo_extracto_encoded",
+      "respuesta_encoded"
+    ]
+  },
+  "training_log": [
+    {
+      "timestamp": "2026-08-20T13:40:07.047257",
+      "step": "Data Preparation",
+      "message": "Train/test split completed"
+    },
+    {
+      "timestamp": "2026-08-20T13:40:07.271056",
+      "step": "XGBoost",
+      "message": "Train accuracy: 0.8689"
+    },
+    {
+      "timestamp": "2026-08-20T13:40:07.673351",
+      "step": "Cross-Validation",
+      "message": "5-fold CV completed"
+    }
+  ],
+  "cross_validation": {
+    "xgboost": {
+      "mean_cv_f1": 0.8511675702731409,
+      "std_cv_f1": 0.015044861247131384,
+      "fold_scores": "[0.8503937  0.85714286 0.86440678 0.86131387 0.82258065]"
+    }
+  }
+}

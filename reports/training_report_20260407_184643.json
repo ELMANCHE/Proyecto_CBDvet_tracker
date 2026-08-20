@@ -1,0 +1,248 @@
+{
+  "timestamp": "2026-04-07T18:46:43.587901",
+  "train_samples": 35000,
+  "test_samples": 15000,
+  "models_trained": [
+    "random_forest",
+    "xgboost",
+    "kmeans",
+    "kmeans_scaler"
+  ],
+  "results": {
+    "random_forest": {
+      "model_name": "Random Forest",
+      "timestamp": "2026-04-07T18:46:29.845145",
+      "train_accuracy": 1.0,
+      "train_precision": 0.0,
+      "train_recall": 0.0,
+      "train_f1": 0.0,
+      "train_auc": null,
+      "test_accuracy": 1.0,
+      "test_precision": 0.0,
+      "test_recall": 0.0,
+      "test_f1": 0.0,
+      "test_auc": null,
+      "confusion_matrix": [
+        [
+          15000
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 15000.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 15000.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 15000.0
+        }
+      },
+      "feature_importance": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "xgboost": {
+      "model_name": "XGBoost",
+      "timestamp": "2026-04-07T18:46:30.044084",
+      "train_accuracy": 1.0,
+      "train_precision": 0.0,
+      "train_recall": 0.0,
+      "train_f1": 0.0,
+      "train_auc": NaN,
+      "test_accuracy": 1.0,
+      "test_precision": 0.0,
+      "test_recall": 0.0,
+      "test_f1": 0.0,
+      "test_auc": NaN,
+      "confusion_matrix": [
+        [
+          15000
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 15000.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 15000.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 15000.0
+        }
+      },
+      "feature_importance": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "kmeans": {
+      "model": "KMeans(n_clusters=4, n_init=10, random_state=42)",
+      "scaler": "StandardScaler()",
+      "n_clusters": 4,
+      "inertia": 1049249.7444302682,
+      "silhouette_score": 0.06805825407422175,
+      "cluster_labels": "[0 0 2 ... 3 0 2]"
+    }
+  },
+  "training_log": [
+    {
+      "timestamp": "2026-04-07T18:46:29.390031",
+      "step": "Data Preparation",
+      "message": "Train/test split completed"
+    },
+    {
+      "timestamp": "2026-04-07T18:46:29.871261",
+      "step": "Random Forest",
+      "message": "Train accuracy: 1.0000"
+    },
+    {
+      "timestamp": "2026-04-07T18:46:30.063450",
+      "step": "XGBoost",
+      "message": "Train accuracy: 1.0000"
+    },
+    {
+      "timestamp": "2026-04-07T18:46:41.787583",
+      "step": "K-Means Clustering",
+      "message": "Silhouette: 0.0681"
+    },
+    {
+      "timestamp": "2026-04-07T18:46:43.560749",
+      "step": "Cross-Validation",
+      "message": "5-fold CV completed"
+    }
+  ],
+  "cross_validation": {
+    "random_forest": {
+      "mean_cv_f1": NaN,
+      "std_cv_f1": NaN,
+      "fold_scores": "[nan nan nan nan nan]"
+    },
+    "xgboost": {
+      "mean_cv_f1": NaN,
+      "std_cv_f1": NaN,
+      "fold_scores": "[nan nan nan nan nan]"
+    }
+  }
+}

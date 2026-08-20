@@ -1,0 +1,185 @@
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:69: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  especie: str = Field(..., example="Canino", description="Species: Canino/Felino")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:70: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  peso_kg: float = Field(..., ge=0.5, le=150, example=25.5, description="Weight in kg")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:71: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  sexo: str = Field(..., example="M", description="Sex: M/F")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:72: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  edad_anios: int = Field(..., ge=0, le=30, example=3, description="Age in years")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:75: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  enfermedad: str = Field(..., example="Artritis", description="Main disease/condition")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:76: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  severidad: str = Field(..., example="Moderada", description="Severity: Leve/Moderada/Grave")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:77: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  duracion_dias: int = Field(..., ge=1, le=3650, example=180, description="Disease duration in days")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:80: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  dosis_mg_kg: float = Field(..., ge=0.1, le=500, example=2.5, description="CBD dose mg/kg")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:81: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  frecuencia: str = Field(..., example="Diaria", description="Frequency: Diaria/Cada2dias")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:82: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  tipo_producto: str = Field(..., example="Aceite", description="Product type: Aceite/Capsulas/Crema")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:85: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  comorbilidades: Optional[str] = Field(None, example="Diabetes", description="Comorbidities")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:86: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  estado_nutricional: str = Field(..., example="Normal", description="Nutritional status")
+/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/api.py:87: PydanticDeprecatedSince20: Using extra keyword arguments on `Field` is deprecated and will be removed. Use `json_schema_extra` instead. (Extra keys: 'example'). Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  nivel_estres: float = Field(..., ge=0, le=10, example=5.0, description="Stress level 0-10")
+2026-04-07 19:01:31 - __main__ - INFO - ✅ Loaded Random Forest: random_forest_v20260407_184643.joblib
+2026-04-07 19:01:31 - __main__ - INFO - ✅ Loaded XGBoost: xgboost_v20260407_184643.joblib
+2026-04-07 19:01:31 - __main__ - INFO - ✅ Loaded KMeans: kmeans_v20260407_184643.joblib
+2026-04-07 19:01:31 - __main__ - INFO - 🚀 Launching CBD Veterinary API...
+2026-04-07 19:01:31 - __main__ - INFO - 📦 Available models: ['random_forest', 'xgboost', 'kmeans']
+INFO:     Started server process [77781]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-04-07 19:01:37,641 INFO sqlalchemy.engine.Engine select pg_catalog.version()
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - select pg_catalog.version()
+2026-04-07 19:01:37,642 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:01:37,643 INFO sqlalchemy.engine.Engine select current_schema()
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - select current_schema()
+2026-04-07 19:01:37,643 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:01:37,644 INFO sqlalchemy.engine.Engine show standard_conforming_strings
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - show standard_conforming_strings
+2026-04-07 19:01:37,644 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:01:37,645 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:01:37,645 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:01:37,645 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:01:37 - database - INFO - ✅ Database connection successful
+2026-04-07 19:01:37,645 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:01:37 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:65168 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65208 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:65208 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:65224 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65224 - "GET /openapi.json HTTP/1.1" 200 OK
+2026-04-07 19:02:17,171 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:02:17 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:02:17,171 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:02:17 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:02:17,171 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:02:17 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:02:17 - database - INFO - ✅ Database connection successful
+2026-04-07 19:02:17,172 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:02:17 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:65237 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:02:24,828 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:02:24 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:02:24,829 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:02:24 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:02:24,829 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:02:24 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:02:24 - database - INFO - ✅ Database connection successful
+2026-04-07 19:02:24,830 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:02:24 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:65253 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:07:12,458 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:07:12 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:07:12,460 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:07:12 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:07:12,460 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:07:12 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:07:12 - database - INFO - ✅ Database connection successful
+2026-04-07 19:07:12,461 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:07:12 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49274 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:07:18,799 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:07:18 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:07:18,799 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:07:18 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:07:18,799 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:07:18 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:07:18 - database - INFO - ✅ Database connection successful
+2026-04-07 19:07:18,800 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:07:18 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49289 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:07:44,699 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:07:44 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:07:44,700 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:07:44 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:07:44,700 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:07:44 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:07:44 - database - INFO - ✅ Database connection successful
+2026-04-07 19:07:44,701 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:07:44 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49329 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:07:46,145 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:07:46 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:07:46,145 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:07:46 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:07:46,145 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:07:46 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:07:46 - database - INFO - ✅ Database connection successful
+2026-04-07 19:07:46,146 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:07:46 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49333 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:07:51,806 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:07:51 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:07:51,806 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:07:51 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:07:51,806 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:07:51 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:07:51 - database - INFO - ✅ Database connection successful
+2026-04-07 19:07:51,807 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:07:51 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49342 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:07:55,724 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:07:55 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:07:55,724 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:07:55 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:07:55,724 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:07:55 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:07:55 - database - INFO - ✅ Database connection successful
+2026-04-07 19:07:55,724 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:07:55 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49349 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:07:55,731 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:07:55 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:07:55,731 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:07:55 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:07:55,732 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:07:55 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:07:55 - database - INFO - ✅ Database connection successful
+2026-04-07 19:07:55,732 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:07:55 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49351 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:08:07,989 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:08:07 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:08:07,991 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:08:07 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:08:07,991 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:08:07 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:08:07 - database - INFO - ✅ Database connection successful
+2026-04-07 19:08:07,993 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:08:07 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49367 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:08:11,002 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:08:11 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:08:11,002 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:08:11 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:08:11,002 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:08:11 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:08:11 - database - INFO - ✅ Database connection successful
+2026-04-07 19:08:11,003 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:08:11 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49373 - "GET /health HTTP/1.1" 200 OK
+2026-04-07 19:08:14,691 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-04-07 19:08:14 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2026-04-07 19:08:14,692 INFO sqlalchemy.engine.Engine SELECT 1
+2026-04-07 19:08:14 - sqlalchemy.engine.Engine - INFO - SELECT 1
+2026-04-07 19:08:14,692 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-04-07 19:08:14 - sqlalchemy.engine.Engine - INFO - [raw sql] {}
+2026-04-07 19:08:14 - database - INFO - ✅ Database connection successful
+2026-04-07 19:08:14,693 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-04-07 19:08:14 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:49380 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51498 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51498 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51500 - "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51500 - "GET /apple-touch-icon.png HTTP/1.1" 404 Not Found

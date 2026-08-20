@@ -1,16 +1,32 @@
-Flask>=2.3
-Flask-Cors>=4.0
-pandas>=1.5
-numpy>=1.24
-python-dotenv
-SQLAlchemy>=2.0
-psycopg2-binary>=2.9
-alembic>=1.12
-streamlit>=1.36
-streamlit-autorefresh>=1.0
-plotly>=5.20
-seaborn>=0.13
-matplotlib>=3.8
-scikit-learn>=1.4
-faker>=19.0
-gunicorn>=21.2
+## === CORE ===
+pandas>=1.5.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+## === DATABASE ===
+psycopg2-binary>=2.9.0
+SQLAlchemy>=2.0.0
+alembic>=1.13.0
+
+## === ML ===
+scikit-learn>=1.2.0
+xgboost>=1.7.0
+imbalanced-learn>=0.10.0
+joblib>=1.2.0
+shap>=0.44.0
+
+## === VIZ ===
+matplotlib>=3.7.0
+plotly>=5.13.0
+
+## === WEB ===
+fastapi>=0.95.0
+uvicorn[standard]>=0.20.0
+streamlit>=1.36.0
+requests>=2.31.0
+
+## === CONFIG / TEST ===
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+pytest>=7.0.0
+python-json-logger>=2.0.0

@@ -1,0 +1,354 @@
+{
+  "timestamp": "2026-08-17T11:59:04.376035",
+  "project": "CBD Veterinary AI System",
+  "methodology": "KDD (Knowledge Discovery in Databases)",
+  "etl": {
+    "raw_records": 150,
+    "final_records": 194,
+    "features": 30,
+    "steps": [
+      {
+        "timestamp": "2026-08-17T11:59:02.645505",
+        "step": "Extract",
+        "message": "150 records"
+      },
+      {
+        "timestamp": "2026-08-17T11:59:02.646264",
+        "step": "Validate",
+        "message": "{'weight_anomalies': 0, 'age_anomalies': 0, 'dosis_anomalies': 0}"
+      },
+      {
+        "timestamp": "2026-08-17T11:59:02.657066",
+        "step": "Clean",
+        "message": "150 rows"
+      },
+      {
+        "timestamp": "2026-08-17T11:59:02.670922",
+        "step": "FeatureEngineering",
+        "message": "45 cols"
+      },
+      {
+        "timestamp": "2026-08-17T11:59:02.734552",
+        "step": "Prepare",
+        "message": "194 samples, 30 features"
+      }
+    ]
+  },
+  "training": {
+    "train_samples": 135,
+    "test_samples": 59,
+    "models": [
+      "random_forest",
+      "xgboost",
+      "kmeans",
+      "kmeans_scaler"
+    ],
+    "results": {
+      "random_forest": {
+        "model_name": "Random Forest",
+        "timestamp": "2026-08-17T11:59:02.960408",
+        "train_accuracy": 1.0,
+        "train_precision": 1.0,
+        "train_recall": 1.0,
+        "train_f1": 1.0,
+        "train_auc": 1.0,
+        "test_accuracy": 1.0,
+        "test_precision": 1.0,
+        "test_recall": 1.0,
+        "test_f1": 1.0,
+        "test_auc": 1.0,
+        "confusion_matrix": [
+          [
+            30,
+            0
+          ],
+          [
+            0,
+            29
+          ]
+        ],
+        "classification_report": {
+          "0": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 30.0
+          },
+          "1": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 29.0
+          },
+          "accuracy": 1.0,
+          "macro avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 59.0
+          },
+          "weighted avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 59.0
+          }
+        },
+        "feature_importance": [
+          0.024506598279045683,
+          0.012988628806057594,
+          0.007290629935927446,
+          0.02086869170086927,
+          0.02701090849221099,
+          0.02499549637995651,
+          0.015463717131614037,
+          0.02028614298580954,
+          0.02027363802516743,
+          0.021557565592259336,
+          0.0233664039990711,
+          0.022928565824171583,
+          0.021242381993903152,
+          0.521469245399559,
+          0.020967978982101707,
+          0.012581100527540016,
+          0.02790189352582439,
+          0.017850494297368503,
+          0.00026665785181911736,
+          0.016062408833432257,
+          0.017210625271854428,
+          0.030646149614710145,
+          0.007478832671957969,
+          0.011393643397678186,
+          0.0060406196578657685,
+          0.007347100937459079,
+          0.007570078320710304,
+          0.0022401701915038996,
+          0.0018020152999424183,
+          0.02839161607260929
+        ]
+      },
+      "xgboost": {
+        "model_name": "XGBoost",
+        "timestamp": "2026-08-17T11:59:03.103105",
+        "train_accuracy": 1.0,
+        "train_precision": 1.0,
+        "train_recall": 1.0,
+        "train_f1": 1.0,
+        "train_auc": 1.0,
+        "test_accuracy": 1.0,
+        "test_precision": 1.0,
+        "test_recall": 1.0,
+        "test_f1": 1.0,
+        "test_auc": 1.0,
+        "confusion_matrix": [
+          [
+            30,
+            0
+          ],
+          [
+            0,
+            29
+          ]
+        ],
+        "classification_report": {
+          "0": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 30.0
+          },
+          "1": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 29.0
+          },
+          "accuracy": 1.0,
+          "macro avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 59.0
+          },
+          "weighted avg": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 59.0
+          }
+        },
+        "feature_importance": [
+          0.018854157999157906,
+          0.007506925612688065,
+          0.02207244746387005,
+          0.14616943895816803,
+          0.010943803936243057,
+          0.026446327567100525,
+          0.0,
+          0.0,
+          0.0,
+          0.0325881727039814,
+          0.0003939835005439818,
+          0.032622113823890686,
+          0.00214156205765903,
+          0.4127275049686432,
+          0.0,
+          0.03086639940738678,
+          0.03350306674838066,
+          0.04957065358757973,
+          0.0,
+          0.053798627108335495,
+          0.024305099621415138,
+          0.03458001837134361,
+          0.0019549422431737185,
+          0.010866750963032246,
+          0.0,
+          0.008067114278674126,
+          0.01705854944884777,
+          0.0,
+          0.013628024607896805,
+          0.00933427456766367
+        ]
+      },
+      "kmeans": {
+        "model": "KMeans(n_clusters=4, n_init=10, random_state=42)",
+        "scaler": "StandardScaler()",
+        "n_clusters": 4,
+        "inertia": 2449.92127915164,
+        "silhouette_score": 0.17081670005979807,
+        "cluster_labels": "[0 3 1 3 3 3 0 0 1 1 0 1 1 1 1 0 1 1 3 1 1 1 3 1 3 3 2 1 1 3 1 1 1 3 3 0 3\n 1 1 1 1 1 3 1 3 3 1 1 1 3 1 1 1 1 3 1 3 1 1 1 3 1 1 1 1 1 1 1 0 3 1 0 1 3\n 1 1 3 2 1 1 3 1 3 3 3 3 3 1 0 1 1 3 1 1 1 3 1 1 1 3 3 3 1 1 3 0 1 0 1 3 3\n 3 0 3 0 0 1 3 1 1 1 3 1 1 1 1 1 3 1 3 0 1 2 1 3]"
+      },
+      "feature_names": [
+        "consulta_id",
+        "peso",
+        "nivel_estres",
+        "alt",
+        "ast",
+        "dosis_mg_kg",
+        "peso_kg",
+        "consulta_id_scaled",
+        "peso_scaled",
+        "nivel_estres_scaled",
+        "alt_scaled",
+        "ast_scaled",
+        "dosis_mg_kg_scaled",
+        "nivel_mejora_scaled",
+        "peso_kg_scaled",
+        "mes",
+        "dia_semana",
+        "es_fin_semana",
+        "grupo_peso_num",
+        "codigo_paciente_encoded",
+        "especie_encoded",
+        "raza_encoded",
+        "sexo_encoded",
+        "enfermedad_encoded",
+        "severidad_encoded",
+        "actividad_fisica_encoded",
+        "apetito_encoded",
+        "frecuencia_encoded",
+        "tipo_extracto_encoded",
+        "respuesta_encoded"
+      ]
+    },
+    "cross_validation": {
+      "random_forest": {
+        "mean_cv_f1": 0.992,
+        "std_cv_f1": 0.016000000000000014,
+        "fold_scores": "[1.   1.   1.   0.96 1.  ]"
+      },
+      "xgboost": {
+        "mean_cv_f1": 1.0,
+        "std_cv_f1": 0.0,
+        "fold_scores": "[1. 1. 1. 1. 1.]"
+      }
+    }
+  },
+  "best_model": {
+    "name": "random_forest",
+    "test_f1": 1.0,
+    "results": {
+      "model_name": "Random Forest",
+      "timestamp": "2026-08-17T11:59:02.960408",
+      "train_accuracy": 1.0,
+      "train_precision": 1.0,
+      "train_recall": 1.0,
+      "train_f1": 1.0,
+      "train_auc": 1.0,
+      "test_accuracy": 1.0,
+      "test_precision": 1.0,
+      "test_recall": 1.0,
+      "test_f1": 1.0,
+      "test_auc": 1.0,
+      "confusion_matrix": [
+        [
+          30,
+          0
+        ],
+        [
+          0,
+          29
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 30.0
+        },
+        "1": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 29.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 59.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 59.0
+        }
+      },
+      "feature_importance": [
+        0.024506598279045683,
+        0.012988628806057594,
+        0.007290629935927446,
+        0.02086869170086927,
+        0.02701090849221099,
+        0.02499549637995651,
+        0.015463717131614037,
+        0.02028614298580954,
+        0.02027363802516743,
+        0.021557565592259336,
+        0.0233664039990711,
+        0.022928565824171583,
+        0.021242381993903152,
+        0.521469245399559,
+        0.020967978982101707,
+        0.012581100527540016,
+        0.02790189352582439,
+        0.017850494297368503,
+        0.00026665785181911736,
+        0.016062408833432257,
+        0.017210625271854428,
+        0.030646149614710145,
+        0.007478832671957969,
+        0.011393643397678186,
+        0.0060406196578657685,
+        0.007347100937459079,
+        0.007570078320710304,
+        0.0022401701915038996,
+        0.0018020152999424183,
+        0.02839161607260929
+      ]
+    }
+  }
+}
