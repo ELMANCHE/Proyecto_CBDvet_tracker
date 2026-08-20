@@ -1,13 +1,17 @@
 """MARSHICO — Dashboard Streamlit integrado con API v2."""
 
+import glob
 import os
 from datetime import datetime
 
+import joblib
 import numpy as np
 import pandas as pd
 import plotly.express as px
 import requests
 import streamlit as st
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 
 from config import Config
 
@@ -19,6 +23,8 @@ MEJORA_SIG = 7
 
 st.set_page_config(page_title="MARSHICO", page_icon="M", layout="wide")
 
+
+# ── Modulos API & Helpers ───────────────────────────────────────────────────
 
 def api_get(path: str, **params):
     r = requests.get(f"{API_BASE}{path}", headers=HEADERS, params=params, timeout=15)
@@ -72,9 +78,14 @@ def shap_chart(explanation: dict):
         return
     try:
         df = pd.DataFrame(explanation["features"])
-        fig = px.bar(df, x="contribution", y="name", orientation="h",
-                     title=f"Explicabilidad ({explanation.get('method', 'n/a')})")
-        st.plotly_chart(fig, width='stretch')
+        fig = px.bar(
+            df, 
+            x="contribution", 
+            y="name", 
+            orientation="h",
+            title=f"Explicabilidad ({explanation.get('method', 'n/a')})"
+        )
+        st.plotly_chart(fig, use_container_width=True)
     except Exception as e:
         st.warning(f"Error mostrando explicación: {str(e)}")
 
@@ -96,7 +107,7 @@ def similar_cases(df: pd.DataFrame, row: dict, n=5):
     return sub.nsmallest(n, "dist")[show]
 
 
-# ── Pages ────────────────────────────────────────────────────────────────────
+# ── Componentes de Paginas ───────────────────────────────────────────────────
 
 def page_dashboard(df: pd.DataFrame, stats: dict):
     st.header("Dashboard")
@@ -113,20 +124,19 @@ def page_dashboard(df: pd.DataFrame, stats: dict):
     dim = st.radio("Serie temporal por", ["especie", "enfermedad"], horizontal=True)
     if "mes" in df.columns and dim in df.columns:
         ts = df.groupby(["mes", dim]).size().reset_index(name="casos")
-        st.plotly_chart(px.line(ts, x="mes", y="casos", color=dim, markers=True, title="Evolución de casos"), width='stretch')
+        st.plotly_chart(px.line(ts, x="mes", y="casos", color=dim, markers=True, title="Evolución de casos"), use_container_width=True)
 
     col1, col2 = st.columns(2)
     with col1:
         if "enfermedad" in df.columns and "nivel_mejora" in df.columns:
             by = df.groupby("enfermedad")["nivel_mejora"].mean().sort_values()
-            st.plotly_chart(px.bar(x=by.values, y=by.index, orientation="h", title="Mejora por enfermedad"), width='stretch')
+            st.plotly_chart(px.bar(x=by.values, y=by.index, orientation="h", title="Mejora por enfermedad"), use_container_width=True)
     with col2:
         if "sexo" in df.columns:
-            st.plotly_chart(px.box(df, x="sexo", y="nivel_mejora", color="sexo", title="Mejora por sexo"), width='stretch')
+            st.plotly_chart(px.box(df, x="sexo", y="nivel_mejora", color="sexo", title="Mejora por sexo"), use_container_width=True)
 
     if "dosis_mg_kg" in df.columns:
-        st.plotly_chart(px.scatter(df, x="dosis_mg_kg", y="nivel_mejora", color="especie", trendline="ols",
-                                   title="Dosis vs mejora"), width='stretch')
+        st.plotly_chart(px.scatter(df, x="dosis_mg_kg", y="nivel_mejora", color="especie", trendline="ols", title="Dosis vs mejora"), use_container_width=True)
 
 
 def page_nuevo_caso(catalogs: dict, df: pd.DataFrame):
@@ -211,10 +221,8 @@ def page_prediccion(df: pd.DataFrame, catalogs: dict):
         
         try:
             pred = api_post("/predict", payload, explain=False)
-            
             probabilidad_mejora = pred['probabilidad_mejora']
             
-            # Mostrar mensaje según porcentaje de probabilidad de mejoría
             if probabilidad_mejora < 0.50:
                 st.error(f"Probabilidad de curación baja ({probabilidad_mejora:.1%})")
             elif 0.50 <= probabilidad_mejora < 0.90:
@@ -226,7 +234,6 @@ def page_prediccion(df: pd.DataFrame, catalogs: dict):
             st.write(f"Modelo: {pred.get('model_name', 'N/A')}")
             st.write(pred.get("recommendation", ""))
             
-            # Mostrar datos relevantes del paciente
             if pred.get("datos_paciente"):
                 st.subheader("Datos del paciente")
                 datos = pred["datos_paciente"]
@@ -266,8 +273,8 @@ def page_analisis():
             df = records_to_df(data["records"])
 
     if not df.empty and "dosis_mg_kg" in df.columns:
-        st.plotly_chart(px.scatter(df, x="dosis_mg_kg", y="nivel_mejora", color="especie", title="Dosis vs mejora"), width='stretch')
-    st.dataframe(df.head(50), width='stretch')
+        st.plotly_chart(px.scatter(df, x="dosis_mg_kg", y="nivel_mejora", color="especie", title="Dosis vs mejora"), use_container_width=True)
+    st.dataframe(df.head(50), use_container_width=True)
 
 
 def page_patrones(df: pd.DataFrame):
@@ -278,7 +285,6 @@ def page_patrones(df: pd.DataFrame):
         st.warning("Sin datos disponibles")
         return
     
-    # Seleccionar features para clustering
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     cluster_features = [c for c in numeric_cols if c in ['peso', 'peso_kg', 'edad_anios', 'dosis_mg_kg', 'nivel_estres', 'nivel_mejora']]
     
@@ -286,10 +292,6 @@ def page_patrones(df: pd.DataFrame):
         st.warning("No suficientes features numéricos para clustering")
         return
     
-    from sklearn.cluster import KMeans
-    from sklearn.preprocessing import StandardScaler
-    
-    # Preparar datos
     cluster_df = df[cluster_features].dropna()
     if len(cluster_df) < 10:
         st.warning("No suficientes datos para clustering")
@@ -298,11 +300,9 @@ def page_patrones(df: pd.DataFrame):
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(cluster_df)
     
-    # KMeans
     kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
     cluster_df['cluster'] = kmeans.fit_predict(X_scaled)
     
-    # Mostrar clusters
     cluster_option = st.selectbox("Seleccionar Cluster", [0, 1, 2])
     cluster_data = cluster_df[cluster_df['cluster'] == cluster_option]
     
@@ -314,7 +314,6 @@ def page_patrones(df: pd.DataFrame):
         peso_col = 'peso_kg' if 'peso_kg' in cluster_data.columns else 'peso'
         c3.metric("Peso promedio", f"{cluster_data[peso_col].mean():.1f} kg")
     
-    # Scatter plot de clusters
     if len(cluster_features) >= 2:
         fig = px.scatter(
             cluster_df, 
@@ -324,9 +323,8 @@ def page_patrones(df: pd.DataFrame):
             title=f"Visualización de Clusters ({cluster_features[0]} vs {cluster_features[1]})",
             color_continuous_scale='viridis'
         )
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, use_container_width=True)
     
-    # Estadísticas por cluster
     st.subheader("Características por Cluster")
     cluster_stats = cluster_df.groupby('cluster')[cluster_features].mean()
     st.dataframe(cluster_stats)
@@ -341,19 +339,16 @@ def page_alertas(df: pd.DataFrame):
     
     alertas = []
     
-    # Alerta 1: Datos incompletos
     missing_cols = df.isnull().sum()
     cols_with_missing = missing_cols[missing_cols > 0]
     if not cols_with_missing.empty:
-        total_missing = cols_with_missing.sum()
         alertas.append({
             "tipo": "Datos incompletos",
-            "descripcion": f"{total_missing} valores faltantes detectados en {len(cols_with_missing)} columnas",
+            "descripcion": f"{cols_with_missing.sum()} valores faltantes detectados en {len(cols_with_missing)} columnas",
             "severidad": "Media",
             "columnas": cols_with_missing.to_dict()
         })
     
-    # Alerta 2: Valores fuera de rango
     if 'nivel_estres' in df.columns:
         estres_outliers = df[(df['nivel_estres'] < 0) | (df['nivel_estres'] > 10)]
         if len(estres_outliers) > 0:
@@ -364,7 +359,6 @@ def page_alertas(df: pd.DataFrame):
                 "casos": len(estres_outliers)
             })
     
-    # Alerta 3: Dosis extremas
     if 'dosis_mg_kg' in df.columns:
         dosis_extremas = df[(df['dosis_mg_kg'] > 50) | (df['dosis_mg_kg'] < 0.1)]
         if len(dosis_extremas) > 0:
@@ -375,7 +369,6 @@ def page_alertas(df: pd.DataFrame):
                 "casos": len(dosis_extremas)
             })
     
-    # Alerta 4: Mejora baja en tratamientos largos
     if 'duracion_dias' in df.columns and 'nivel_mejora' in df.columns:
         baja_mejora_larga = df[(df['duracion_dias'] > 180) & (df['nivel_mejora'] < 5)]
         if len(baja_mejora_larga) > 0:
@@ -390,7 +383,6 @@ def page_alertas(df: pd.DataFrame):
         st.success("No se detectaron alertas")
         return
     
-    # Mostrar alertas
     for i, alerta in enumerate(alertas):
         with st.expander(f"{alerta['tipo']} - {alerta['severidad']}", expanded=i == 0):
             st.write(alerta['descripcion'])
@@ -407,18 +399,13 @@ def page_calidad(df: pd.DataFrame):
         st.warning("Sin datos disponibles")
         return
     
-    # Métricas de calidad
     total_cells = df.shape[0] * df.shape[1]
     missing_cells = df.isnull().sum().sum()
     completeness = (1 - missing_cells / total_cells) * 100 if total_cells > 0 else 0
-    
     duplicates = df.duplicated().sum()
     duplicate_pct = (duplicates / len(df)) * 100 if len(df) > 0 else 0
-    
     missing_pct = (missing_cells / total_cells) * 100 if total_cells > 0 else 0
-    
-    # Consistencia (simplificada)
-    consistency = 91.0  # Valor estimado
+    consistency = 91.0
     
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Completitud", f"{completeness:.0f}%")
@@ -426,7 +413,6 @@ def page_calidad(df: pd.DataFrame):
     c3.metric("Valores faltantes", f"{missing_pct:.0f}%")
     c4.metric("Consistencia", f"{consistency:.0f}%")
     
-    # Variables con mayor cantidad de faltantes
     st.subheader("Variables con mayor cantidad de faltantes")
     missing_by_col = df.isnull().sum().sort_values(ascending=False)
     missing_by_col = missing_by_col[missing_by_col > 0]
@@ -436,11 +422,10 @@ def page_calidad(df: pd.DataFrame):
         for col, count in missing_by_col.head(10).items():
             pct = (count / len(df)) * 100
             bar_length = int((count / max_missing) * 20)
-            st.write(f"{col.ljust(20)} {'#' * bar_length} {pct:.1f}%")
+            st.write(f"`{col.ljust(20)}` {'#' * bar_length} {pct:.1f}%")
     else:
         st.info("No hay valores faltantes")
     
-    # Resumen general
     st.subheader("Resumen de Calidad")
     st.write(f"Total de registros: {len(df)}")
     st.write(f"Total de variables: {df.shape[1]}")
@@ -451,19 +436,18 @@ def page_calidad(df: pd.DataFrame):
 def page_model_intelligence(df: pd.DataFrame):
     st.header("Model Intelligence")
     
-    # Cargar resultados de entrenamiento
     try:
-        import joblib
-        import glob
-        results_files = glob.glob("/Users/eliasefrainmanchegonavarro/Documents/Proyecto_CBDvet_tracker/models/training_results_*.joblib")
+        # Se actualizo a ruta relativa dinamica
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        models_dir = os.path.join(base_dir, "models")
+        results_files = glob.glob(os.path.join(models_dir, "training_results_*.joblib"))
+        
         if results_files:
             latest_results = joblib.load(sorted(results_files)[-1])
-            
             st.subheader("Comparación de Modelos")
             
-            # Crear tabla de comparación
             results_data = []
-            for model_name, results in latest_results['results'].items():
+            for model_name, results in latest_results.get('results', {}).items():
                 if 'test_f1' in results:
                     results_data.append({
                         "Modelo": model_name.upper(),
@@ -476,20 +460,18 @@ def page_model_intelligence(df: pd.DataFrame):
             if results_data:
                 st.dataframe(pd.DataFrame(results_data))
             
-            # Matriz de confusión
             st.subheader("Matriz de Confusión")
-            for model_name, results in latest_results['results'].items():
+            for model_name, results in latest_results.get('results', {}).items():
                 if 'confusion_matrix' in results:
-                    st.write(f"{model_name.upper()}:")
+                    st.write(f"**{model_name.upper()}**")
                     cm = results['confusion_matrix']
                     cm_df = pd.DataFrame(cm, columns=['Pred Negativo', 'Pred Positivo'], 
-                                        index=['Real Negativo', 'Real Positivo'])
+                                         index=['Real Negativo', 'Real Positivo'])
                     st.dataframe(cm_df)
             
-            # Importancia de variables
             st.subheader("Importancia de Variables")
-            for model_name, results in latest_results['results'].items():
-                if 'feature_importance' in results and results['feature_importance']:
+            for model_name, results in latest_results.get('results', {}).items():
+                if results.get('feature_importance'):
                     feature_names = latest_results.get('feature_names', [])
                     if feature_names:
                         importance_df = pd.DataFrame({
@@ -497,11 +479,16 @@ def page_model_intelligence(df: pd.DataFrame):
                             'Importancia': results['feature_importance']
                         }).sort_values('Importancia', ascending=False).head(10)
                         
-                        fig = px.bar(importance_df, x='Importancia', y='Feature', 
-                                     orientation='h', title=f"Top 10 Features - {model_name.upper()}")
-                        st.plotly_chart(fig, width='stretch')
+                        fig = px.bar(
+                            importance_df, 
+                            x='Importancia', 
+                            y='Feature', 
+                            orientation='h', 
+                            title=f"Top 10 Features - {model_name.upper()}"
+                        )
+                        st.plotly_chart(fig, use_container_width=True)
         else:
-            st.warning("No se encontraron resultados de entrenamiento")
+            st.warning("No se encontraron resultados de entrenamiento en el directorio /models")
     except Exception as e:
         st.error(f"Error cargando resultados de entrenamiento: {e}")
 
@@ -515,7 +502,6 @@ def page_casos_similares(df: pd.DataFrame):
     
     st.subheader("Buscar casos similares en la base de datos")
     
-    # Formulario de búsqueda
     c1, c2 = st.columns(2)
     with c1:
         especie_busqueda = st.selectbox("Especie", sorted(df["especie"].dropna().unique()) if "especie" in df.columns else ["Perro"])
@@ -525,10 +511,8 @@ def page_casos_similares(df: pd.DataFrame):
         severidad_busqueda = st.selectbox("Severidad", ["Leve", "Moderada", "Grave"])
     
     if st.button("Buscar casos similares", type="primary"):
-        # Filtrar casos similares
         similares = df.copy()
         
-        # Filtrar por especie y enfermedad
         if "especie" in similares.columns:
             similares = similares[similares["especie"] == especie_busqueda]
         if "enfermedad" in similares.columns:
@@ -536,14 +520,12 @@ def page_casos_similares(df: pd.DataFrame):
         if "severidad" in similares.columns:
             similares = similares[similares["severidad"] == severidad_busqueda]
         
-        # Calcular similitud por peso
         peso_col = "peso_kg" if "peso_kg" in similares.columns else "peso"
         if peso_col in similares.columns:
             peso_diff = abs(similares[peso_col] - peso_busqueda)
             similares["similitud"] = 100 - (peso_diff / peso_busqueda * 100)
             similares = similares.sort_values("similitud", ascending=False)
         
-        # Mostrar resultados
         st.subheader(f"Casos similares encontrados: {len(similares)}")
         
         for idx, row in similares.head(5).iterrows():
@@ -565,7 +547,6 @@ def page_mapa_enfermedades(df: pd.DataFrame):
         st.warning("Sin datos disponibles")
         return
     
-    # Top 10 condiciones
     st.subheader("Top 10 condiciones registradas")
     if "enfermedad" in df.columns:
         enfermedad_counts = df["enfermedad"].value_counts().head(10)
@@ -573,27 +554,21 @@ def page_mapa_enfermedades(df: pd.DataFrame):
         
         for enfermedad, count in enfermedad_counts.items():
             bar_length = int((count / max_count) * 20)
-            st.write(f"{enfermedad.ljust(25)} {'#' * bar_length} {count}")
+            st.write(f"`{enfermedad.ljust(25)}` {'#' * bar_length} {count}")
     
-    # Heatmap enfermedad x especie
     st.subheader("Enfermedad por Especie")
     if "enfermedad" in df.columns and "especie" in df.columns:
-        # Crear tabla de contingencia
         heatmap_data = pd.crosstab(df["enfermedad"], df["especie"])
-        
-        # Normalizar para porcentajes
         heatmap_pct = heatmap_data.div(heatmap_data.sum(axis=1), axis=0) * 100
         
-        # Mostrar como dataframe con colores
         st.dataframe(heatmap_pct.style.background_gradient(cmap='RdYlGn', axis=1))
         
-        # Gráfico de barras apiladas
         fig = px.bar(
             heatmap_data.reset_index().melt(id_vars='enfermedad', var_name='especie', value_name='count'),
             x='enfermedad', y='count', color='especie',
             title="Distribución de enfermedades por especie"
         )
-        st.plotly_chart(fig, width='stretch')
+        st.plotly_chart(fig, use_container_width=True)
 
 
 def page_distribucion(df: pd.DataFrame):
@@ -604,41 +579,36 @@ def page_distribucion(df: pd.DataFrame):
         return
     
     c1, c2 = st.columns(2)
-    
-    # Distribución por especie
     with c1:
         st.subheader("Distribución por Especie")
         if "especie" in df.columns:
             especie_counts = df["especie"].value_counts()
-            fig = px.pie(values=especie_counts.values, names=especie_counts.index, 
-                        title="Distribución por especie")
-            st.plotly_chart(fig, width='stretch')
+            fig = px.pie(values=especie_counts.values, names=especie_counts.index, title="Distribución por especie")
+            st.plotly_chart(fig, use_container_width=True)
     
-    # Distribución por edad
     with c2:
         st.subheader("Distribución por Edad")
         if "edad_anios" in df.columns:
             fig = px.histogram(df, x="edad_anios", nbins=20, title="Distribución de edades")
-            st.plotly_chart(fig, width='stretch')
+            st.plotly_chart(fig, use_container_width=True)
     
-    # Distribución por sexo
     c1, c2 = st.columns(2)
     with c1:
         st.subheader("Distribución por Sexo")
         if "sexo" in df.columns:
             sexo_counts = df["sexo"].value_counts()
-            fig = px.bar(x=sexo_counts.index, y=sexo_counts.values, 
-                        title="Distribución por sexo")
-            st.plotly_chart(fig, width='stretch')
+            fig = px.bar(x=sexo_counts.index, y=sexo_counts.values, title="Distribución por sexo")
+            st.plotly_chart(fig, use_container_width=True)
     
     with c2:
         st.subheader("Distribución por Severidad")
         if "severidad" in df.columns:
             severidad_counts = df["severidad"].value_counts()
-            fig = px.bar(x=severidad_counts.index, y=severidad_counts.values,
-                        title="Distribución por severidad")
-            st.plotly_chart(fig, width='stretch')
+            fig = px.bar(x=severidad_counts.index, y=severidad_counts.values, title="Distribución por severidad")
+            st.plotly_chart(fig, use_container_width=True)
 
+
+# ── Modulo Principal ────────────────────────────────────────────────────────
 
 def main():
     st.title("MARSHICO")
@@ -648,27 +618,31 @@ def main():
 
     try:
         stats = load_analytics()
-        df = records_to_df(stats["records"])
+        df = records_to_df(stats.get("records", []))
         catalogs = load_catalogs()
     except Exception as e:
-        st.error(f"Error conectando API: {e}")
-        st.code("Verifica API_KEY en .env (default: cbd-dev-key-change-me)")
+        st.error(f"Error conectando a la API: {e}")
+        st.code("Verifica la variable API_KEY en el archivo .env")
         st.stop()
 
-    page = st.sidebar.radio("Menú", ["Dashboard", "Nuevo Caso", "Predicción", "Análisis", "Descubrimiento de Patrones", "Centro de Alertas", "Calidad del Dataset", "Model Intelligence", "Buscador de Casos Similares", "Mapa de Enfermedades", "Distribución de Pacientes"])
-    st.sidebar.caption(f"Registros: {stats.get('total', 0)}")
+    pages = {
+        "Dashboard": lambda: page_dashboard(df, stats),
+        "Nuevo Caso": lambda: page_nuevo_caso(catalogs, df),
+        "Predicción": lambda: page_prediccion(df, catalogs),
+        "Análisis": page_analisis,
+        "Descubrimiento de Patrones": lambda: page_patrones(df),
+        "Centro de Alertas": lambda: page_alertas(df),
+        "Calidad del Dataset": lambda: page_calidad(df),
+        "Model Intelligence": lambda: page_model_intelligence(df),
+        "Buscador de Casos Similares": lambda: page_casos_similares(df),
+        "Mapa de Enfermedades": lambda: page_mapa_enfermedades(df),
+        "Distribución de Pacientes": lambda: page_distribucion(df),
+    }
 
-    {"Dashboard": lambda: page_dashboard(df, stats),
-     "Nuevo Caso": lambda: page_nuevo_caso(catalogs, df),
-     "Predicción": lambda: page_prediccion(df, catalogs),
-     "Análisis": page_analisis,
-     "Descubrimiento de Patrones": lambda: page_patrones(df),
-     "Centro de Alertas": lambda: page_alertas(df),
-     "Calidad del Dataset": lambda: page_calidad(df),
-     "Model Intelligence": lambda: page_model_intelligence(df),
-     "Buscador de Casos Similares": lambda: page_casos_similares(df),
-     "Mapa de Enfermedades": lambda: page_mapa_enfermedades(df),
-     "Distribución de Pacientes": lambda: page_distribucion(df)}[page]()
+    page = st.sidebar.radio("Menú", list(pages.keys()))
+    st.sidebar.caption(f"Registros cargados: {stats.get('total', 0)}")
+
+    pages[page]()
 
 
 if __name__ == "__main__":
